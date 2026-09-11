@@ -1,0 +1,124 @@
+/* Y2K Dollhouse portfolio styles */
+
+.App { min-height: 100vh; }
+
+.y2k-root {
+  background:
+    radial-gradient(1200px 500px at 10% -10%, #ffd6ec 0%, transparent 60%),
+    radial-gradient(900px 400px at 100% 0%, #bfe3ff 0%, transparent 60%),
+    linear-gradient(180deg, #ffe6f3 0%, #f7d8ee 40%, #d8ecff 100%);
+  color: #3b1f4a;
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+/* Fonts */
+.font-bubble { font-family: 'Rubik Bubbles', 'Bungee Shade', cursive; letter-spacing: 0.5px; }
+.font-pixel { font-family: 'Silkscreen', 'VT323', monospace; letter-spacing: 0.2px; }
+
+/* Marquee */
+.marquee {
+  animation: scroll-x 28s linear infinite;
+}
+@keyframes scroll-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Window title buttons */
+.win-btn {
+  width: 18px; height: 16px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #ffe6f3;
+  border: 2px solid #3b1f4a;
+  border-radius: 3px;
+  color: #3b1f4a;
+  box-shadow: 1px 1px 0 0 #3b1f4a;
+}
+.win-btn:hover { background: #fff; }
+
+/* Buttons */
+.y2k-btn {
+  font-family: 'Silkscreen', monospace;
+  font-size: 12px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ff9ed6, #ff58a8);
+  color: #ffffff;
+  border: 2px solid #3b1f4a;
+  box-shadow: 3px 3px 0 0 #3b1f4a;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+.y2k-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 0 #3b1f4a; }
+.y2k-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 0 #3b1f4a; }
+.y2k-btn.ghost {
+  background: #fff;
+  color: #a63e91;
+}
+
+.y2k-icon {
+  width: 34px; height: 30px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+  background: #fff;
+  border: 2px solid #3b1f4a;
+  box-shadow: 2px 2px 0 0 #3b1f4a;
+}
+.y2k-icon:hover { background: #ffe6f3; }
+
+/* Nav */
+.nav-item {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 6px 10px; border-radius: 10px;
+  color: #a63e91;
+  transition: transform 120ms ease, background 120ms ease;
+}
+.nav-item:hover { background: #ffe6f3; transform: translateY(-2px); color: #ff2e93; }
+.nav-icon { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 12px; background: #fff0f8; border: 2px solid #3b1f4a; box-shadow: 2px 2px 0 0 #3b1f4a; }
+
+/* Inputs */
+.y2k-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #3b1f4a;
+  border-radius: 10px;
+  background: #fff;
+  font-family: 'Silkscreen', monospace;
+  font-size: 12px;
+  color: #3b1f4a;
+  outline: none;
+}
+.y2k-input:focus { box-shadow: 0 0 0 3px #ffd6ec; }
+
+/* Polaroid */
+.polaroid {
+  background: #fff;
+  border: 2px solid #3b1f4a;
+  box-shadow: 3px 3px 0 0 #3b1f4a;
+  padding: 6px 6px 4px;
+  width: 110px;
+  border-radius: 4px;
+  text-align: center;
+}
+.polaroid img { width: 100%; height: 100px; object-fit: cover; border-radius: 2px; }
+
+/* Clouds overlay */
+.clouds {
+  background-image:
+    radial-gradient(30px 12px at 20% 20%, #ffffff 60%, transparent 61%),
+    radial-gradient(50px 18px at 70% 30%, #ffffff 60%, transparent 61%),
+    radial-gradient(40px 14px at 40% 70%, #ffffff 60%, transparent 61%),
+    radial-gradient(60px 20px at 85% 75%, #ffffff 60%, transparent 61%);
+  filter: blur(0.5px);
+}
+
+/* Hide scrollbars for the taskbar tabs area */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Selection color for Y2K feel */
+::selection { background: #ff9ed6; color: #3b1f4a; }
+
+/* Small screens: reduce huge titles */
+@media (max-width: 640px) {
+  .font-bubble { letter-spacing: 0.2px; }
+}
