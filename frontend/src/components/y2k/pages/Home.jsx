@@ -27,7 +27,7 @@ export default function HomePage() {
               Hi, I&apos;m Jevan ♡
             </div>
             <p className="mt-3 font-body text-[14px] md:text-[15px] text-[#4a2b5c] max-w-[520px]">
-              Aspiring data scientist based in Vancouver. I love turning numbers into stories that actually mean something ♡
+              Aspiring data scientist and software engineer in Vancouver. Building stuff and turning numbers into solutions ♡
             </p>
             <ul className="mt-5 space-y-3">
               {accomplishments.map(({ Logo, text }, i) => (
@@ -82,7 +82,7 @@ export default function HomePage() {
             { Icon: Sparkles, t: "OPEN TO WORK", s: "Summer 2027 Internships" },
             { Icon: MapPin, t: "BASED IN", s: "Greater Vancouver, BC" },
             { Icon: School, t: "STUDYING", s: "MSc Data Science @ Georgia Tech" },
-            { Icon: Palmtree, t: "CURRENTLY", s: "Taking a break before school starts ♡" }
+            { Icon: Palmtree, t: "CURRENTLY", s: "On break ♡" }
           ].map(({ Icon, t, s }, i) => (
             <div key={i} className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-lg bg-white border-[2px] border-[#4a2b5c] shadow-[2px_2px_0_0_#4a2b5c] flex items-center justify-center text-[#a06a94] shrink-0"><Icon size={22} /></div>
