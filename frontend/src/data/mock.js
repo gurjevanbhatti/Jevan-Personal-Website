@@ -8,7 +8,7 @@ export const profile = {
   tagline: "i build scalable systems and love working with data \u2661",
   location: "greater vancouver, bc",
   status: "open to summer 2027 internships",
-  avatar: "https://images.unsplash.com/photo-1758676171646-14da2df79b9a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDV8MHwxfHNlYXJjaHw0fHx5MmslMjBmYXNoaW9ufGVufDB8fHx8MTc4OTEwODk2MHww&ixlib=rb-4.1.0&q=85",
+  avatar: "/assets/jevan.jpg",
   sign: "data \u2661",
   likes: ["python", "clean data", "boba", "long walks"],
   dislikes: ["nulls", "unlabelled axes"],

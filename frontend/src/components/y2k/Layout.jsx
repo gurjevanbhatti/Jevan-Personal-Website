@@ -29,11 +29,11 @@ export default function Layout() {
     <div className="y2k-root min-h-screen w-full pb-20">
       <div className="h-8 bg-[#e77bb8] text-white flex items-center overflow-hidden border-b-[2px] border-[#4a2b5c]">
         <div className="marquee flex gap-10 whitespace-nowrap font-pixel text-[12px] px-4">
-          <span>✦ Hi babe ♡ welcome to Jevan's portfolio</span>
+          <span>✦ Welcome to Jevan's Portfolio</span>
           <span>✦ Open to Summer 2027 internships</span>
           <span>✦ Ex Meta · Amazon · Instagram · Microsoft</span>
           <span>✦ MSc Data Science @ Georgia Tech</span>
-          <span>✦ Hi babe ♡ welcome to Jevan's portfolio</span>
+          <span>✦ Welcome to Jevan's Portfolio</span>
           <span>✦ Open to Summer 2027 internships</span>
           <span>✦ Ex Meta · Amazon · Instagram · Microsoft</span>
           <span>✦ MSc Data Science @ Georgia Tech</span>
@@ -45,7 +45,7 @@ export default function Layout() {
           <div className="col-span-12 md:col-span-3">
             <NavLink to="/" className="block">
               <div className="relative bg-white border-[2px] border-[#4a2b5c] rounded-2xl px-4 py-4 shadow-[4px_4px_0_0_#4a2b5c] hover:-translate-y-[2px] transition-transform text-center">
-                <div className="font-bubble text-[28px] leading-[1] bg-gradient-to-b from-[#e77bb8] to-[#a06a94] text-transparent bg-clip-text drop-shadow-[2px_2px_0_#fff]">Personal Portfolio</div>
+                <div className="font-bubble text-[28px] leading-[1] bg-gradient-to-b from-[#e77bb8] to-[#a06a94] text-transparent bg-clip-text drop-shadow-[2px_2px_0_#fff]">Jevan&apos;s Portfolio</div>
               </div>
             </NavLink>
           </div>

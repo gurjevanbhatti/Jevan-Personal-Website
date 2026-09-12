@@ -13,17 +13,16 @@ export default function HomePage() {
         <div className="absolute inset-0 pointer-events-none opacity-60 clouds" />
         <div className="grid grid-cols-12 gap-6 items-center relative">
           <div className="col-span-12 md:col-span-7">
-            <div className="font-pixel text-[12px] text-[#a06a94] mb-3">// personal portfolio</div>
             <div className="font-bubble text-[54px] md:text-[80px] leading-[0.95] tracking-tight bg-gradient-to-b from-[#e77bb8] via-[#f1a8d0] to-[#a06a94] text-transparent bg-clip-text drop-shadow-[2px_2px_0_#fff]">
               Hi, I&apos;m Jevan ♡
             </div>
             <p className="mt-4 font-body text-[16px] md:text-[17px] text-[#4a2b5c] leading-relaxed max-w-[560px]">
-              Incoming MSc in Data Science at <b>Georgia Tech</b>. I build scalable systems and love working with data — previously at <b>Meta</b>, <b>Amazon</b>, <b>Instagram</b> &amp; <b>Microsoft</b>.
+              Incoming MSc in Data Science at <b>Georgia Tech</b>. I love turning messy data into clear stories, from analyzing 50M+ Instagram creator posts to shipping AI systems at scale. Previously at <b>Meta</b>, <b>Amazon</b>, <b>Instagram</b> and <b>Microsoft</b>.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <button onClick={() => navigate("/experience")} className="y2k-btn">See my work</button>
               <button onClick={() => navigate("/about")} className="y2k-btn ghost">About me</button>
-              <button onClick={() => navigate("/contact")} className="y2k-btn ghost">Say hi ♡</button>
+              <button onClick={() => navigate("/contact")} className="y2k-btn ghost">Message Me!</button>
             </div>
             <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 font-pixel text-[12px] text-[#a06a94]">
               <span className="underline">MSc @ Georgia Tech</span>
