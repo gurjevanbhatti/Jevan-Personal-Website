@@ -27,12 +27,12 @@ export const profile = {
 };
 
 export const about = {
-  intro: "Hi! I'm Jevan \u2014 an incoming MS in Data Science at Georgia Tech with a soft spot for scalable systems and thoughtful data work.",
-  body: "Previously at Meta, Amazon, Instagram & Microsoft. I love turning messy data into clear stories, shipping backends that don't fall over, and mentoring students from underrepresented communities. Currently finishing my BS in Data Science at Simon Fraser and open to Summer 2027 internships.",
+  intro: "Hi! I'm Jevan, an incoming MS in Data Science at Georgia Tech with a soft spot for scalable systems and thoughtful data work.",
+  body: "Previously at Meta, Amazon, Instagram, and Microsoft. I love turning messy data into clear stories, shipping backends that don't fall over, and mentoring students from underrepresented communities. Recently graduated with a BS in Data Science from Simon Fraser University and open to Summer 2027 internships.",
   funFacts: [
-    "analyzed 50M+ views across 1M+ posts for instagram x tiktok creators",
-    "deployed lambdas across 30+ aws regions handling 330k requests/sec",
-    "supported 30,000+ cs students through codepath + teals"
+    "Analyzed 50M+ views across 1M+ posts for Instagram \u00d7 TikTok Creators",
+    "Deployed Lambdas across 30+ AWS regions handling 330k requests/sec",
+    "Supported 30,000+ CS students through CodePath + TEALS"
   ]
 };
 
