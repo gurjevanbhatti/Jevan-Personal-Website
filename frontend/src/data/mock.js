@@ -69,43 +69,43 @@ export const skills = {
 
 export const experience = [
   {
-    company: "Microsoft (TEALS)",
-    role: "SWE Instructor \u00b7 On-call",
-    years: "Jan 2024 \u2014 Aug 2026",
-    location: "Remote",
-    bullets: [
-      "Provided technical interview prep + career coaching to college CS students through CodePath.",
-      "Supported 30,000+ students from underrepresented communities across the U.S."
-    ]
-  },
-  {
-    company: "Meta \u00d7 Major League Hacking",
+    company: "Meta × Major League Hacking",
     role: "Production Engineering Fellow",
-    years: "Sep 2025 \u2014 Dec 2025",
+    years: "Sep 2025 — Dec 2025",
     location: "Remote",
     bullets: [
       "Engineered a production-ready Flask & MySQL web-app template.",
-      "Established a reusable, scalable architecture for deploying secure environments."
+      "Built a reusable, scalable architecture for deploying secure environments."
     ]
   },
   {
     company: "Instagram",
     role: "Student Data Scientist",
-    years: "May 2025 \u2014 Aug 2025",
-    location: "Vancouver, BC \u00b7 Remote",
+    years: "May 2025 — Aug 2025",
+    location: "Vancouver, BC · Remote",
     bullets: [
-      "Led an engagement analytics blueprint with Instagram \u00d7 TikTok Digital Creators.",
+      "Led an engagement analytics blueprint with Instagram × TikTok Creators.",
       "Analyzed 50M+ views across 1M+ posts to identify drivers of high-performing content."
     ]
   },
   {
     company: "Amazon",
     role: "Student Software Engineer",
-    years: "May 2024 \u2014 Sep 2024",
-    location: "Vancouver, BC \u00b7 Remote",
+    years: "May 2024 — Sep 2024",
+    location: "Vancouver, BC · Remote",
     bullets: [
       "Designed a serverless, distributed architecture across 30+ AWS regions using CDK.",
-      "Efficiently managed up to 330,000 client requests / second with strong availability."
+      "Managed up to 330,000 client requests per second with strong availability."
+    ]
+  },
+  {
+    company: "Microsoft (TEALS)",
+    role: "SWE Instructor · On-call",
+    years: "Jan 2024 — Present",
+    location: "Remote",
+    bullets: [
+      "Provided technical interview prep and career coaching to college CS students.",
+      "Supported 30,000+ students from underrepresented communities across the U.S."
     ]
   }
 ];

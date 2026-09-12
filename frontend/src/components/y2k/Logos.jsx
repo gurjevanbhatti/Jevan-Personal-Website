@@ -29,6 +29,16 @@ export function GeorgiaTechLogo() {
   );
 }
 
+export function SfuLogo() {
+  return (
+    <div className={box} style={{ background: "#A6192E" }}>
+      <svg viewBox="0 0 40 40" className="w-8 h-8" xmlns="http://www.w3.org/2000/svg">
+        <text x="50%" y="58%" textAnchor="middle" dominantBaseline="middle" fontFamily="'Rubik Bubbles', system-ui" fontSize="12" fontWeight="900" fill="#fff">SFU</text>
+      </svg>
+    </div>
+  );
+}
+
 export function TrophyLogo() {
   return (
     <div className={box} style={{ background: "#FFF4C9" }}>

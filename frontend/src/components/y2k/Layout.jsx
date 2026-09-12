@@ -6,9 +6,9 @@ import Taskbar from "./Taskbar";
 const navItems = [
   { to: "/", label: "home", Icon: Home, tab: "welcome.html" },
   { to: "/about", label: "about", Icon: User, tab: "about_me.txt" },
-  { to: "/education", label: "education", Icon: GraduationCap, tab: "education.doc" },
-  { to: "/skills", label: "skills", Icon: Wrench, tab: "skills.exe" },
   { to: "/experience", label: "experience", Icon: Briefcase, tab: "work.doc" },
+  { to: "/skills", label: "skills", Icon: Wrench, tab: "skills.exe" },
+  { to: "/education", label: "education", Icon: GraduationCap, tab: "education.doc" },
   { to: "/contact", label: "contact", Icon: Mail, tab: "contact.exe" }
 ];
 
