@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import Window from "../Window";
 import { Heart, Star, Sparkle } from "../Sticker";
 import { profile } from "../../../data/mock";
-import { Mail, Send, Linkedin, Github, MapPin, Star as StarIcon, Heart as HeartIcon, Loader2 } from "lucide-react";
+import { Mail, Send, Linkedin, Github, MapPin, Heart as HeartIcon, Loader2 } from "lucide-react";
 import { useToast } from "../../../hooks/use-toast";
-import axios from "axios";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+// FormSubmit — zero signup. First submission triggers a one-time email confirmation link.
+const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${profile.email}`;
 
 export default function ContactPage() {
   const [msg, setMsg] = useState({ name: "", email: "", note: "" });
@@ -22,16 +22,26 @@ export default function ContactPage() {
     }
     setSending(true);
     try {
-      const res = await axios.post(`${API}/contact`, msg);
-      const delivered = res?.data?.delivered;
-      setSent(true);
-      toast({
-        title: delivered ? "message sent ♡" : "got it! ♡",
-        description: delivered ? "gurjevan will get back to you soon." : "saved your message — she'll see it soon."
+      const res = await fetch(FORMSUBMIT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          name: msg.name,
+          email: msg.email,
+          message: msg.note,
+          _subject: `♡ New portfolio message from ${msg.name}`,
+          _template: "table",
+          _captcha: "false"
+        })
       });
+      const data = await res.json().catch(() => ({}));
+      const ok = res.ok && (data.success === "true" || data.success === true);
+      if (!ok) throw new Error(data.message || "Something went wrong");
+      setSent(true);
+      toast({ title: "message sent ♡", description: "gurjevan will get back to you soon." });
       setMsg({ name: "", email: "", note: "" });
     } catch (err) {
-      toast({ title: "oh no, try again bestie ♡", description: err?.response?.data?.detail?.[0]?.msg || err.message || "network hiccup" });
+      toast({ title: "oh no, try again bestie ♡", description: err.message || "network hiccup" });
     } finally {
       setSending(false);
     }
