@@ -2,7 +2,7 @@ import React from "react";
 import Window from "../Window";
 import { profile } from "../../../data/mock";
 import { Link, useNavigate } from "react-router-dom";
-import { ChevronRight, GraduationCap, Wrench, Briefcase, Mail, Sparkles, Music2, MapPin, School } from "lucide-react";
+import { ChevronRight, GraduationCap, Wrench, Briefcase, Mail, Sparkles, Palmtree, MapPin, School } from "lucide-react";
 import { MetaLogo, AmazonLogo, MicrosoftLogo, InstagramLogo, GeorgiaTechLogo, TrophyLogo } from "../Logos";
 
 const accomplishments = [
@@ -26,7 +26,10 @@ export default function HomePage() {
             <div className="font-bubble text-[52px] md:text-[76px] leading-[0.95] tracking-tight bg-gradient-to-b from-[#e77bb8] via-[#f1a8d0] to-[#a06a94] text-transparent bg-clip-text drop-shadow-[2px_2px_0_#fff]">
               Hi, I&apos;m Jevan ♡
             </div>
-            <ul className="mt-6 space-y-3">
+            <p className="mt-3 font-body text-[14px] md:text-[15px] text-[#4a2b5c] max-w-[520px]">
+              Aspiring data scientist based in Vancouver. I love turning numbers into stories that actually mean something ♡
+            </p>
+            <ul className="mt-5 space-y-3">
               {accomplishments.map(({ Logo, text }, i) => (
                 <li key={i} className="flex items-center gap-3">
                   <Logo />
@@ -79,7 +82,7 @@ export default function HomePage() {
             { Icon: Sparkles, t: "OPEN TO WORK", s: "Summer 2027 Internships" },
             { Icon: MapPin, t: "BASED IN", s: "Greater Vancouver, BC" },
             { Icon: School, t: "STUDYING", s: "MSc Data Science @ Georgia Tech" },
-            { Icon: Music2, t: "CURRENTLY", s: "Reading ML Systems Papers" }
+            { Icon: Palmtree, t: "CURRENTLY", s: "Taking a break before school starts ♡" }
           ].map(({ Icon, t, s }, i) => (
             <div key={i} className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-lg bg-white border-[2px] border-[#4a2b5c] shadow-[2px_2px_0_0_#4a2b5c] flex items-center justify-center text-[#a06a94] shrink-0"><Icon size={22} /></div>
