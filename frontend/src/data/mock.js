@@ -1,7 +1,7 @@
 // Portfolio content — personalized for Gurjevan Kaur Bhatti
 export const profile = {
   name: "gurjevan kaur bhatti",
-  firstName: "gurjevan",
+  firstName: "Jevan",
   pronouns: "she/her",
   handle: "@gurjevan.exe",
   headline: "incoming msc data science @ georgia tech",
@@ -27,8 +27,8 @@ export const profile = {
 };
 
 export const about = {
-  intro: "hi! i'm gurjevan \u2014 an incoming ms in data science at georgia tech with a soft spot for scalable systems and thoughtful data work.",
-  body: "ex meta, amazon, instagram & microsoft. i love turning messy data into clear stories, shipping backends that don't fall over, and mentoring students from underrepresented communities. currently finishing my bs in data science at simon fraser and open to summer 2027 internships.",
+  intro: "Hi! I'm Jevan \u2014 an incoming MS in Data Science at Georgia Tech with a soft spot for scalable systems and thoughtful data work.",
+  body: "Previously at Meta, Amazon, Instagram & Microsoft. I love turning messy data into clear stories, shipping backends that don't fall over, and mentoring students from underrepresented communities. Currently finishing my BS in Data Science at Simon Fraser and open to Summer 2027 internships.",
   funFacts: [
     "analyzed 50M+ views across 1M+ posts for instagram x tiktok creators",
     "deployed lambdas across 30+ aws regions handling 330k requests/sec",
