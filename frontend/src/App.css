@@ -1,24 +1,23 @@
-/* Y2K Dollhouse portfolio styles */
+/* Y2K Dollhouse portfolio — softer baby pink palette */
 
 .App { min-height: 100vh; }
 
 .y2k-root {
   background:
-    radial-gradient(1200px 500px at 10% -10%, #ffd6ec 0%, transparent 60%),
-    radial-gradient(900px 400px at 100% 0%, #bfe3ff 0%, transparent 60%),
-    linear-gradient(180deg, #ffe6f3 0%, #f7d8ee 40%, #d8ecff 100%);
-  color: #3b1f4a;
-  font-family: 'Poppins', system-ui, sans-serif;
+    radial-gradient(1200px 500px at 10% -10%, #ffe6f3 0%, transparent 60%),
+    radial-gradient(900px 400px at 100% 0%, #d9ecff 0%, transparent 60%),
+    linear-gradient(180deg, #fff2f9 0%, #f7e4f2 40%, #e7f0fb 100%);
+  color: #4a2b5c;
+  font-family: 'Nunito', 'Poppins', system-ui, sans-serif;
 }
 
 /* Fonts */
-.font-bubble { font-family: 'Rubik Bubbles', 'Bungee Shade', cursive; letter-spacing: 0.5px; }
-.font-pixel { font-family: 'Silkscreen', 'VT323', monospace; letter-spacing: 0.2px; }
+.font-bubble { font-family: 'Rubik Bubbles', cursive; letter-spacing: 0.5px; }
+.font-pixel { font-family: 'Silkscreen', monospace; letter-spacing: 0.2px; }
+.font-body { font-family: 'Nunito', 'Poppins', system-ui, sans-serif; }
 
 /* Marquee */
-.marquee {
-  animation: scroll-x 28s linear infinite;
-}
+.marquee { animation: scroll-x 32s linear infinite; }
 @keyframes scroll-x {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -28,11 +27,11 @@
 .win-btn {
   width: 18px; height: 16px;
   display: inline-flex; align-items: center; justify-content: center;
-  background: #ffe6f3;
-  border: 2px solid #3b1f4a;
+  background: #fff0f8;
+  border: 2px solid #4a2b5c;
   border-radius: 3px;
-  color: #3b1f4a;
-  box-shadow: 1px 1px 0 0 #3b1f4a;
+  color: #4a2b5c;
+  box-shadow: 1px 1px 0 0 #4a2b5c;
 }
 .win-btn:hover { background: #fff; }
 
@@ -40,66 +39,82 @@
 .y2k-btn {
   font-family: 'Silkscreen', monospace;
   font-size: 12px;
-  padding: 8px 14px;
+  padding: 9px 16px;
   border-radius: 999px;
-  background: linear-gradient(180deg, #ff9ed6, #ff58a8);
-  color: #ffffff;
-  border: 2px solid #3b1f4a;
-  box-shadow: 3px 3px 0 0 #3b1f4a;
+  background: linear-gradient(180deg, #ffd6ec, #ffa1c9);
+  color: #4a2b5c;
+  border: 2px solid #4a2b5c;
+  box-shadow: 3px 3px 0 0 #4a2b5c;
   transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
 }
-.y2k-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 0 #3b1f4a; }
-.y2k-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 0 #3b1f4a; }
+.y2k-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 0 #4a2b5c; background: linear-gradient(180deg, #ffe6f3, #ffbcd8); }
+.y2k-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 0 #4a2b5c; }
+.y2k-btn:disabled { opacity: 0.7; cursor: not-allowed; }
 .y2k-btn.ghost {
   background: #fff;
-  color: #a63e91;
+  color: #a06a94;
 }
+.y2k-btn.ghost:hover { background: #ffe6f3; }
 
 .y2k-icon {
   width: 34px; height: 30px;
   display: inline-flex; align-items: center; justify-content: center;
   border-radius: 8px;
   background: #fff;
-  border: 2px solid #3b1f4a;
-  box-shadow: 2px 2px 0 0 #3b1f4a;
+  border: 2px solid #4a2b5c;
+  box-shadow: 2px 2px 0 0 #4a2b5c;
+  color: #4a2b5c;
 }
 .y2k-icon:hover { background: #ffe6f3; }
 
 /* Nav */
 .nav-item {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  padding: 6px 10px; border-radius: 10px;
-  color: #a63e91;
-  transition: transform 120ms ease, background 120ms ease;
+  padding: 6px 10px; border-radius: 12px;
+  color: #a06a94;
+  transition: transform 120ms ease, background 120ms ease, color 120ms ease;
 }
-.nav-item:hover { background: #ffe6f3; transform: translateY(-2px); color: #ff2e93; }
-.nav-icon { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 12px; background: #fff0f8; border: 2px solid #3b1f4a; box-shadow: 2px 2px 0 0 #3b1f4a; }
+.nav-item:hover { background: #ffe6f3; transform: translateY(-2px); color: #e77bb8; }
+.nav-icon {
+  width: 40px; height: 40px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 12px;
+  background: #fff0f8;
+  border: 2px solid #4a2b5c;
+  box-shadow: 2px 2px 0 0 #4a2b5c;
+}
+.nav-active { color: #e77bb8; background: #ffe6f3; }
+.nav-active .nav-icon { background: #ffd6ec; }
 
 /* Inputs */
 .y2k-input {
   width: 100%;
-  padding: 10px 12px;
-  border: 2px solid #3b1f4a;
-  border-radius: 10px;
+  padding: 12px 14px;
+  border: 2px solid #4a2b5c;
+  border-radius: 12px;
   background: #fff;
-  font-family: 'Silkscreen', monospace;
-  font-size: 12px;
-  color: #3b1f4a;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: #4a2b5c;
   outline: none;
 }
+.y2k-input::placeholder { color: #b499aa; }
 .y2k-input:focus { box-shadow: 0 0 0 3px #ffd6ec; }
 
-/* Polaroid */
-.polaroid {
+/* Social button */
+.social-btn {
+  height: 34px; padding: 0 12px;
+  display: inline-flex; align-items: center; gap: 8px;
+  border-radius: 999px;
   background: #fff;
-  border: 2px solid #3b1f4a;
-  box-shadow: 3px 3px 0 0 #3b1f4a;
-  padding: 6px 6px 4px;
-  width: 110px;
-  border-radius: 4px;
-  text-align: center;
+  border: 2px solid #4a2b5c;
+  box-shadow: 2px 2px 0 0 #4a2b5c;
+  color: #4a2b5c;
+  font-family: 'Silkscreen', monospace;
+  font-size: 11px;
+  transition: transform 120ms ease, background 120ms ease;
 }
-.polaroid img { width: 100%; height: 100px; object-fit: cover; border-radius: 2px; }
+.social-btn:hover { background: #ffe6f3; transform: translateY(-1px); }
 
 /* Clouds overlay */
 .clouds {
@@ -111,14 +126,7 @@
   filter: blur(0.5px);
 }
 
-/* Hide scrollbars for the taskbar tabs area */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* Selection color for Y2K feel */
-::selection { background: #ff9ed6; color: #3b1f4a; }
-
-/* Small screens: reduce huge titles */
-@media (max-width: 640px) {
-  .font-bubble { letter-spacing: 0.2px; }
-}
+::selection { background: #ffd6ec; color: #4a2b5c; }

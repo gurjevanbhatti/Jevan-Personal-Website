@@ -1,100 +1,111 @@
-// Mock data for Y2K Dollhouse portfolio
+// Portfolio content — personalized for Gurjevan Kaur Bhatti
 export const profile = {
-  name: "kimmy tan",
-  handle: "@kimmy.exe",
-  headline: "designer 4 the internet",
-  tagline: "crafting cute, clicky, pixel-perfect experiences since y2k \u2661",
-  location: "cyber city, www",
-  status: "online \u2665",
+  name: "gurjevan kaur bhatti",
+  firstName: "gurjevan",
+  pronouns: "she/her",
+  handle: "@gurjevan.exe",
+  headline: "incoming msc data science @ georgia tech",
+  tagline: "i build scalable systems and love working with data \u2661",
+  location: "greater vancouver, bc",
+  status: "open to summer 2027 internships",
   avatar: "https://images.unsplash.com/photo-1758676171646-14da2df79b9a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDV8MHwxfHNlYXJjaHw0fHx5MmslMjBmYXNoaW9ufGVufDB8fHx8MTc4OTEwODk2MHww&ixlib=rb-4.1.0&q=85",
-  age: 24,
-  sign: "Aquarius",
-  likes: ["lemonade", "what if...", "petrichor"],
-  dislikes: ["aluminium", "bad hair days"],
-  email: "hi@kimmytan.cute",
+  sign: "data \u2661",
+  likes: ["python", "clean data", "boba", "long walks"],
+  dislikes: ["nulls", "unlabelled axes"],
+  email: "gurjevanbhatti@gmail.com",
+  linkedin: "https://www.linkedin.com/in/gurjevan-kaur-bhatti-35b42a185",
   socials: [
+    { label: "linkedin", url: "https://www.linkedin.com/in/gurjevan-kaur-bhatti-35b42a185" },
     { label: "github", url: "#" },
-    { label: "linkedin", url: "#" },
-    { label: "dribbble", url: "#" },
-    { label: "twitter", url: "#" }
+    { label: "email", url: "mailto:gurjevanbhatti@gmail.com" }
+  ],
+  stats: [
+    { k: "followers", v: "2,084" },
+    { k: "connections", v: "500+" },
+    { k: "skills", v: "48" }
   ]
 };
 
 export const about = {
-  intro: "hi babe! i'm kimmy — a product designer & front-end dev with a soft spot for glossy pixels, playful UX, and interfaces that spark joy.",
-  body: "i build cute yet accessible websites that feel like a hug. by day i design; by night i collect Tamagotchis, remix noughties pop, and stack stickers on my flip phone. i believe good taste is free, kindness is aesthetic, and every project deserves a lil' sparkle.",
+  intro: "hi! i'm gurjevan \u2014 an incoming ms in data science at georgia tech with a soft spot for scalable systems and thoughtful data work.",
+  body: "ex meta, amazon, instagram & microsoft. i love turning messy data into clear stories, shipping backends that don't fall over, and mentoring students from underrepresented communities. currently finishing my bs in data science at simon fraser and open to summer 2027 internships.",
   funFacts: [
-    "can name every character in Bratz Rock Angelz",
-    "types at 92 wpm on a bubblegum pink keyboard",
-    "believes CSS is the highest form of poetry"
+    "analyzed 50M+ views across 1M+ posts for instagram x tiktok creators",
+    "deployed lambdas across 30+ aws regions handling 330k requests/sec",
+    "supported 30,000+ cs students through codepath + teals"
   ]
 };
 
 export const education = [
   {
-    school: "University of the Internet",
-    degree: "B.Des in Interaction Design",
-    years: "2018 \u2014 2022",
-    detail: "Graduated with honors. Thesis: 'Y2K Nostalgia as a UX Pattern Language.'"
+    school: "Georgia Institute of Technology",
+    degree: "MSc, Data Science",
+    years: "incoming 2027",
+    detail: "admitted to the online ms in data science program."
   },
   {
-    school: "Cyber High Academy",
-    degree: "Diploma, Digital Arts",
-    years: "2016 \u2014 2018",
-    detail: "Editor-in-chief of the school zine 'pixel!!'. Best portfolio award '18."
-  },
-  {
-    school: "Google UX Certificate",
-    degree: "Professional Certification",
-    years: "2022",
-    detail: "Capstone: designing calm interfaces for anxious users."
+    school: "Simon Fraser University",
+    degree: "BS, Data Science",
+    years: "2022 \u2014 2026",
+    detail: "awards: undergraduate award for women in the faculty of science 2025. activities: women in computer science (wics), girls who code (gwc)."
   }
 ];
 
 export const skills = {
-  design: [
-    { name: "Figma", level: 95 },
-    { name: "Illustrator", level: 88 },
-    { name: "Photoshop", level: 82 },
-    { name: "After Effects", level: 70 }
+  data: [
+    { name: "Python", level: 95 },
+    { name: "SQL", level: 92 },
+    { name: "Machine Learning", level: 85 },
+    { name: "Big Data", level: 82 }
   ],
   code: [
-    { name: "React", level: 92 },
-    { name: "TypeScript", level: 85 },
-    { name: "Tailwind", level: 96 },
-    { name: "Framer Motion", level: 78 }
+    { name: "AWS (Lambda, CDK)", level: 88 },
+    { name: "Flask / MySQL", level: 84 },
+    { name: "Distributed Systems", level: 80 },
+    { name: "Data Viz", level: 82 }
   ],
-  soft: ["storytelling", "user research", "design systems", "public speaking", "branding", "a11y advocacy"]
+  soft: ["mentorship", "technical interviewing", "analytics", "data storytelling", "cross-team collab", "community building"]
 };
 
 export const experience = [
   {
-    company: "Bubblegum Labs",
-    role: "Senior Product Designer",
-    years: "2023 \u2014 now",
+    company: "Microsoft (TEALS)",
+    role: "SWE Instructor \u00b7 On-call",
+    years: "Jan 2024 \u2014 Aug 2026",
+    location: "Remote",
     bullets: [
-      "Lead the design system 'Sparkle' used across 12 shipped products.",
-      "Shipped the mobile onboarding that lifted activation +32%.",
-      "Mentor of 4 junior designers; run the weekly Y2K crit club."
+      "Provided technical interview prep + career coaching to college CS students through CodePath.",
+      "Supported 30,000+ students from underrepresented communities across the U.S."
     ]
   },
   {
-    company: "Dollhouse Studio",
-    role: "Product Designer & Front-End Dev",
-    years: "2021 \u2014 2023",
+    company: "Meta \u00d7 Major League Hacking",
+    role: "Production Engineering Fellow",
+    years: "Sep 2025 \u2014 Dec 2025",
+    location: "Remote",
     bullets: [
-      "Rebranded 3 D2C beauty startups from scratch.",
-      "Coded playful landing pages that averaged 6.4% conversion.",
-      "Introduced motion guidelines used company-wide."
+      "Engineered a production-ready Flask & MySQL web-app template.",
+      "Established a reusable, scalable architecture for deploying secure environments."
     ]
   },
   {
-    company: "Freelance",
-    role: "Designer for cute internet things",
-    years: "2019 \u2014 2021",
+    company: "Instagram",
+    role: "Student Data Scientist",
+    years: "May 2025 \u2014 Aug 2025",
+    location: "Vancouver, BC \u00b7 Remote",
     bullets: [
-      "Designed indie zines, Discord servers and iMessage sticker packs.",
-      "Built 20+ Shopify themes for small businesses run by women."
+      "Led an engagement analytics blueprint with Instagram \u00d7 TikTok Digital Creators.",
+      "Analyzed 50M+ views across 1M+ posts to identify drivers of high-performing content."
+    ]
+  },
+  {
+    company: "Amazon",
+    role: "Student Software Engineer",
+    years: "May 2024 \u2014 Sep 2024",
+    location: "Vancouver, BC \u00b7 Remote",
+    bullets: [
+      "Designed a serverless, distributed architecture across 30+ AWS regions using CDK.",
+      "Efficiently managed up to 330,000 client requests / second with strong availability."
     ]
   }
 ];
@@ -102,11 +113,11 @@ export const experience = [
 export const quickLinks = ["about", "education", "skills", "experience", "contact"];
 
 export const playlist = [
-  { n: "01", t: "in my bag", d: "2:31" },
+  { n: "01", t: "gradient descent", d: "2:31" },
   { n: "02", t: "vida digital", d: "3:12", playing: true },
-  { n: "03", t: "internet angel", d: "2:45" },
-  { n: "04", t: "2002 baby", d: "3:07" },
-  { n: "05", t: "dial-up vice", d: "4:09" },
+  { n: "03", t: "sql lullaby", d: "2:45" },
+  { n: "04", t: "aws sunrise", d: "3:07" },
+  { n: "05", t: "pandas & dreams", d: "4:09" },
   { n: "06", t: "say my name (remix)", d: "2:56" },
   { n: "07", t: "cyber crush", d: "3:33" },
   { n: "08", t: "pixel heart", d: "2:22" }
