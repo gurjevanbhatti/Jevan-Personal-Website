@@ -1,4 +1,4 @@
-export type PageId = 'home' | 'about' | 'experience' | 'projects' | 'contact'
+export type PageId = 'home' | 'about' | 'experience' | 'education' | 'projects' | 'contact'
 
 export interface WindowState {
   x: number

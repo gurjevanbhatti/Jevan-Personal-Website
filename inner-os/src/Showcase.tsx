@@ -1,25 +1,24 @@
 import { useState } from 'react'
 import type { PageId } from './types'
-import Sidebar from './components/Sidebar'
+import TopNav from './components/TopNav'
 import Landing from './pages/Landing'
 import About from './pages/About'
 import Experience from './pages/Experience'
+import Education from './pages/Education'
 import Projects from './pages/Projects'
 import Contact from './pages/Contact'
 
 export default function Showcase() {
   const [page, setPage] = useState<PageId>('home')
 
-  if (page === 'home') {
-    return <Landing onNavigate={setPage} />
-  }
-
   return (
-    <div className="showcase-layout">
-      <Sidebar current={page} onNavigate={setPage} />
-      <div className="showcase-content">
+    <div className="showcase">
+      <TopNav current={page} onNavigate={setPage} />
+      <div className="showcase-body">
+        {page === 'home' && <Landing onNavigate={setPage} />}
         {page === 'about' && <About onNavigate={setPage} />}
         {page === 'experience' && <Experience />}
+        {page === 'education' && <Education />}
         {page === 'projects' && <Projects />}
         {page === 'contact' && <Contact />}
       </div>

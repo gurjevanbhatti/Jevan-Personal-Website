@@ -1,4 +1,4 @@
-import { profile, education, skills } from '../data/content'
+import { profile, skills } from '../data/content'
 import type { PageId } from '../types'
 
 interface Props {
@@ -30,13 +30,6 @@ export default function About({ onNavigate }: Props) {
         <img className="about-photo" src="/inner-os/avatar-placeholder.svg" alt={profile.name} />
         <span className="figure-caption">Figure 1: Me, 2026</span>
       </div>
-
-      <h2 className="page-subheading">Education</h2>
-      {education.map((e) => (
-        <p key={e.school}>
-          <b>{e.school}</b>, {e.location} — {e.degree} ({e.date})
-        </p>
-      ))}
 
       <h2 className="page-subheading">Skills</h2>
       {Object.entries(skills).map(([category, list]) => (
