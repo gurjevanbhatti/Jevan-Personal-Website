@@ -1,5 +1,6 @@
 import { useRef, type ReactNode, type MouseEvent as ReactMouseEvent } from 'react'
 import type { WindowState } from '../types'
+import AppIcon from './AppIcon'
 
 interface Props {
   win: WindowState
@@ -40,16 +41,23 @@ export default function Window({
     window.removeEventListener('mouseup', onMouseUp)
   }
 
+
   if (win.minimized) return null
 
   const style = win.maximized
-    ? { left: 0, top: 0, width: '100%', height: 'calc(100% - 34px)', zIndex: win.z }
+    ? {
+        left: 0,
+        top: 'var(--menubar-h)',
+        width: '100%',
+        height: 'calc(100% - var(--menubar-h) - var(--dock-h))',
+        zIndex: win.z,
+      }
     : { left: win.x, top: win.y, width: win.width, height: win.height, zIndex: win.z }
 
   return (
     <div className={`browser-window ${active ? 'active' : ''}`} style={style} onMouseDown={onFocus}>
       <div className="title-bar" onMouseDown={onTitleDown} onDoubleClick={onToggleMaximize}>
-        <span className="title-bar-text">{icon} {title}</span>
+        <span className="title-bar-text"><AppIcon icon={icon} className="title-bar-icon" /> {title}</span>
         <div className="title-bar-controls">
           <button aria-label="Minimize" onClick={onMinimize}>_</button>
           <button aria-label="Maximize" onClick={onToggleMaximize}>{win.maximized ? '❐' : '□'}</button>

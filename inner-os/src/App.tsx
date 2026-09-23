@@ -2,13 +2,15 @@ import { useState, lazy, Suspense } from 'react'
 import { APPS } from './apps'
 import type { AppId, WindowState } from './types'
 import Window from './components/Window'
-import Taskbar from './components/Taskbar'
+import MenuBar from './components/MenuBar'
+import Dock from './components/Dock'
+import AppIcon from './components/AppIcon'
 import Showcase from './Showcase'
 import SearchApp from './apps/SearchApp'
 import WordApp from './apps/WordApp'
 import CreditsApp from './apps/CreditsApp'
+import Wallpaper, { WALLPAPERS, type WallpaperId } from './components/Wallpaper'
 import DisplayApp from './apps/DisplayApp'
-import Wallpaper, { type WallpaperId } from './components/Wallpaper'
 import './win98.css'
 
 // Monaco is heavy — only pulled in when VS Code is actually opened
@@ -19,12 +21,12 @@ let nextZ = 10
 function App() {
   const [windows, setWindows] = useState<WindowState[]>([])
   const [activeId, setActiveId] = useState<AppId | null>(null)
-  const [startOpen, setStartOpen] = useState(false)
   const [wallpaper, setWallpaper] = useState<WallpaperId>(() => {
     try {
-      return (localStorage.getItem('wallpaper') as WallpaperId) || 'bubbles'
+      const saved = localStorage.getItem('wallpaper') as WallpaperId | null
+      return saved && WALLPAPERS.some((x) => x.id === saved) ? saved : 'marble'
     } catch {
-      return 'bubbles'
+      return 'marble'
     }
   })
 
@@ -45,7 +47,7 @@ function App() {
       return [...prev, {
         id,
         x: 40 + n * 26,
-        y: 30 + n * 22,
+        y: 44 + n * 22,
         width: def.width,
         height: def.height,
         z: ++nextZ,
@@ -54,7 +56,6 @@ function App() {
       }]
     })
     setActiveId(id)
-    setStartOpen(false)
   }
 
   const patch = (id: AppId, p: Partial<WindowState>) =>
@@ -72,12 +73,16 @@ function App() {
 
   const onTaskClick = (id: AppId) => {
     const w = windows.find((x) => x.id === id)
-    if (!w) return
+    if (!w) { openApp(id); return }
     if (w.minimized || activeId !== id) openApp(id)
     else patch(id, { minimized: true })
   }
 
-  const render = (id: AppId) => {
+  const activeTitle =
+    (activeId && APPS.find((a) => a.id === activeId)?.title) || 'Finder'
+
+  const render = (w: WindowState) => {
+    const id = w.id
     switch (id) {
       case 'showcase': return <Showcase />
       case 'search':   return <SearchApp />
@@ -94,8 +99,9 @@ function App() {
   }
 
   return (
-    <div className="desktop" onMouseDown={() => setStartOpen(false)}>
+    <div className="desktop">
       <Wallpaper variant={wallpaper} />
+      <MenuBar activeTitle={activeTitle} />
       <div className="desktop-icons">
         {APPS.map((a) => (
           <button
@@ -104,7 +110,7 @@ function App() {
             onDoubleClick={() => openApp(a.id)}
             onClick={(e) => e.detail === 0 && openApp(a.id)}
           >
-            <div className="desktop-icon-glyph">{a.icon}</div>
+            <div className="desktop-icon-glyph"><AppIcon icon={a.icon} /></div>
             <div className="desktop-icon-label">{a.title}</div>
           </button>
         ))}
@@ -125,31 +131,12 @@ function App() {
             onToggleMaximize={() => patch(w.id, { maximized: !w.maximized })}
             onMove={(x, y) => patch(w.id, { x, y })}
           >
-            {render(w.id)}
+            {render(w)}
           </Window>
         )
       })}
 
-      {startOpen && (
-        <>
-          <div className="start-backdrop" onMouseDown={() => setStartOpen(false)} />
-          <div className="start-menu">
-            {APPS.map((a) => (
-              <button key={a.id} className="start-item" onClick={() => openApp(a.id)}>
-                <span className="start-item-icon">{a.icon}</span>{a.title}
-              </button>
-            ))}
-          </div>
-        </>
-      )}
-
-      <Taskbar
-        windows={windows}
-        activeId={activeId}
-        startOpen={startOpen}
-        onToggleStart={() => setStartOpen((v) => !v)}
-        onTaskClick={onTaskClick}
-      />
+      <Dock windows={windows} activeId={activeId} onLaunch={onTaskClick} />
     </div>
   )
 }

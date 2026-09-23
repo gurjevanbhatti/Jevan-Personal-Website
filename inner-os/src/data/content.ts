@@ -6,7 +6,7 @@ export const profile = {
   email: 'gurjevanbhatti@gmail.com',
   phone: '+1 (778) 929-6638',
   github: 'https://github.com/gurjevanbhatti',
-  linkedin: '#', // TODO: add LinkedIn URL
+  linkedin: 'https://www.linkedin.com/in/gurjevan-kaur-bhatti-35b42a185',
   intro:
     "I'm currently pursuing my Master of Science in Data Science at Georgia Tech, after finishing my B.S. in Data Science at Simon Fraser University. Thanks for taking the time to check out my portfolio — I hope you enjoy exploring it as much as I enjoyed building it. If you have any questions or comments, feel free to reach out through the contact page or shoot me an email.",
   bio: "I've spent the last couple years bouncing between backend infrastructure, cloud architecture, and applied ML — deploying serverless systems built to handle hundreds of thousands of requests a second, and building AI tools aimed at solving real problems rather than just demoing well. I like projects that force me to learn the boring, load-bearing parts of a system, not just the parts that look good in a demo.",

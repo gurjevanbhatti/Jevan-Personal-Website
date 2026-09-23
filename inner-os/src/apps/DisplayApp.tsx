@@ -10,7 +10,6 @@ export default function DisplayApp({ value, onChange }: Props) {
     <div className="display-app">
       <h1 className="page-heading">Display Properties</h1>
       <p className="display-hint">Background</p>
-
       <div className="display-grid">
         {WALLPAPERS.map((w) => (
           <button
@@ -25,11 +24,7 @@ export default function DisplayApp({ value, onChange }: Props) {
           </button>
         ))}
       </div>
-
-      <p className="display-note">
-        All of these are drawn in code — no image files, nothing downloaded from anywhere.
-        Your choice is remembered on this device.
-      </p>
+      <p className="display-note">Generated in code — no image files. Your choice is remembered.</p>
     </div>
   )
 }
