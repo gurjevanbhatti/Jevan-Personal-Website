@@ -1,6 +1,6 @@
 export type PageId = 'home' | 'about' | 'experience' | 'education' | 'projects' | 'contact'
 
-export type AppId = 'showcase' | 'vscode' | 'search' | 'word' | 'credits' | 'display'
+export type AppId = 'showcase' | 'vscode' | 'search' | 'terminal' | 'credits'
 
 export interface AppDef {
   id: AppId

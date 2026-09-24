@@ -7,6 +7,7 @@ import Resources from '../Utils/Resources';
 import Sizes from '../Utils/Sizes';
 import Camera from '../Camera/Camera';
 import EventEmitter from '../Utils/EventEmitter';
+import UIEventBus from '../UI/EventBus';
 
 const SCREEN_SIZE = { w: 1280, h: 1024 };
 const IFRAME_PADDING = 32;
@@ -31,6 +32,7 @@ export default class MonitorScreen extends EventEmitter {
     shouldLeaveMonitor: boolean;
     inComputer: boolean;
     mouseClickInProgress: boolean;
+    zoomLocked: boolean;
     dimmingPlane: THREE.Mesh;
     videoTextures: { [key in string]: THREE.VideoTexture };
 
@@ -48,6 +50,10 @@ export default class MonitorScreen extends EventEmitter {
         this.videoTextures = {};
         this.mouseClickInProgress = false;
         this.shouldLeaveMonitor = false;
+        this.zoomLocked = false;
+        UIEventBus.on('zoomLock', (locked: boolean) => {
+            this.zoomLocked = locked;
+        });
 
         // Create screen
         this.initializeScreenEvents();
@@ -71,14 +77,19 @@ export default class MonitorScreen extends EventEmitter {
                 // @ts-ignore
                 this.inComputer = event.inComputer;
 
-                if (this.inComputer && !this.prevInComputer) {
+                if (
+                    this.inComputer &&
+                    !this.prevInComputer &&
+                    !this.zoomLocked
+                ) {
                     this.camera.trigger('enterMonitor');
                 }
 
                 if (
                     !this.inComputer &&
                     this.prevInComputer &&
-                    !this.mouseClickInProgress
+                    !this.mouseClickInProgress &&
+                    !this.zoomLocked
                 ) {
                     this.camera.trigger('leftMonitor');
                 }
@@ -118,7 +129,7 @@ export default class MonitorScreen extends EventEmitter {
                 this.inComputer = event.inComputer;
                 this.application.mouse.trigger('mouseup', [event]);
 
-                if (this.shouldLeaveMonitor) {
+                if (this.shouldLeaveMonitor && !this.zoomLocked) {
                     this.camera.trigger('leftMonitor');
                     this.shouldLeaveMonitor = false;
                 }

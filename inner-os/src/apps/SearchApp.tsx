@@ -183,7 +183,7 @@ export default function SearchApp() {
   const mic = () => {
     const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
     if (!SR) {
-      setToast('Voice search needs Chrome — type instead')
+      setToast('Voice search needs Chrome, type instead')
       return
     }
     if (listening) {

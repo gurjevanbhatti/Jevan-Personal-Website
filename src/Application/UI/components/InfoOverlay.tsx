@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import FreeCamToggle from './FreeCamToggle';
-import MuteToggle from './MuteToggle';
+import ZoomToggle from './ZoomToggle';
 
 interface InfoOverlayProps {
     visible: boolean;
 }
 
 const NAME_TEXT = 'Jevan Bhatti';
-const TITLE_TEXT = 'Software Engineer';
+const TITLE_TEXT = 'Welcome to my desk';
 const MULTIPLIER = 1;
 
 const InfoOverlay: React.FC<InfoOverlayProps> = ({ visible }) => {
@@ -18,8 +17,7 @@ const InfoOverlay: React.FC<InfoOverlayProps> = ({ visible }) => {
     const timeRef = useRef(time);
     const [timeText, setTimeText] = useState('');
     const [textDone, setTextDone] = useState(false);
-    const [volumeVisible, setVolumeVisible] = useState(false);
-    const [freeCamVisible, setFreeCamVisible] = useState(false);
+    const [zoomVisible, setZoomVisible] = useState(false);
 
     const typeText = (
         i: number,
@@ -80,17 +78,14 @@ const InfoOverlay: React.FC<InfoOverlayProps> = ({ visible }) => {
     useEffect(() => {
         if (textDone) {
             setTimeout(() => {
-                setVolumeVisible(true);
-                setTimeout(() => {
-                    setFreeCamVisible(true);
-                }, 250);
+                setZoomVisible(true);
             }, 250);
         }
     }, [textDone]);
 
     useEffect(() => {
         window.postMessage({ type: 'keydown', key: `_AUTO_` }, '*');
-    }, [freeCamVisible, volumeVisible]);
+    }, [zoomVisible]);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -108,12 +103,12 @@ const InfoOverlay: React.FC<InfoOverlayProps> = ({ visible }) => {
         <div style={styles.wrapper}>
             {nameText !== '' && (
                 <div style={styles.container}>
-                    <p>{nameText}</p>
+                    <p style={styles.text}>{nameText}</p>
                 </div>
             )}
             {titleText !== '' && (
                 <div style={styles.container}>
-                    <p>{titleText}</p>
+                    <p style={styles.text}>{titleText}</p>
                 </div>
             )}
             {timeText !== '' && (
@@ -125,16 +120,11 @@ const InfoOverlay: React.FC<InfoOverlayProps> = ({ visible }) => {
                             styles.lastRowChild
                         )}
                     >
-                        <p>{timeText}</p>
+                        <p style={styles.text}>{timeText}</p>
                     </div>
-                    {volumeVisible && (
+                    {zoomVisible && (
                         <div style={styles.lastRowChild}>
-                            <MuteToggle />
-                        </div>
-                    )}
-                    {freeCamVisible && (
-                        <div style={styles.lastRowChild}>
-                            <FreeCamToggle />
+                            <ZoomToggle />
                         </div>
                     )}
                 </div>
@@ -145,7 +135,7 @@ const InfoOverlay: React.FC<InfoOverlayProps> = ({ visible }) => {
 
 const styles: StyleSheetCSS = {
     container: {
-        background: 'black',
+        background: '#f6bcd9',
         padding: 4,
         paddingLeft: 16,
         paddingRight: 16,
@@ -168,6 +158,9 @@ const styles: StyleSheetCSS = {
         marginLeft: 8,
         paddingBottom: 2,
         paddingRight: 4,
+    },
+    text: {
+        color: '#3a2630',
     },
     lastRow: {
         display: 'flex',

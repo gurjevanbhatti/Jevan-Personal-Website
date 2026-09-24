@@ -87,6 +87,7 @@ export default class Camera extends EventEmitter {
         this.setPostLoadTransition();
         this.setInstance();
         this.setMonitorListeners();
+        this.setZoomLockListeners();
         this.setFreeCamListeners();
     }
 
@@ -146,6 +147,20 @@ export default class Camera extends EventEmitter {
         this.on('leftMonitor', () => {
             this.transition(CameraKey.DESK);
             UIEventBus.dispatch('leftMonitor', {});
+        });
+    }
+
+    setZoomLockListeners() {
+        UIEventBus.on('zoomLock', (locked: boolean) => {
+            if (locked) {
+                this.transition(
+                    CameraKey.MONITOR,
+                    2000,
+                    BezierEasing(0.13, 0.99, 0, 1)
+                );
+            } else {
+                this.transition(CameraKey.DESK);
+            }
         });
     }
 

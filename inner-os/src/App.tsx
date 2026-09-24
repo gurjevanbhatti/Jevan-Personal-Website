@@ -7,10 +7,9 @@ import Dock from './components/Dock'
 import AppIcon from './components/AppIcon'
 import Showcase from './Showcase'
 import SearchApp from './apps/SearchApp'
-import WordApp from './apps/WordApp'
 import CreditsApp from './apps/CreditsApp'
 import Wallpaper, { WALLPAPERS, type WallpaperId } from './components/Wallpaper'
-import DisplayApp from './apps/DisplayApp'
+import TerminalApp from './apps/TerminalApp'
 import './win98.css'
 
 // Monaco is heavy — only pulled in when VS Code is actually opened
@@ -86,9 +85,8 @@ function App() {
     switch (id) {
       case 'showcase': return <Showcase />
       case 'search':   return <SearchApp />
-      case 'word':     return <WordApp />
       case 'credits':  return <CreditsApp />
-      case 'display':  return <DisplayApp value={wallpaper} onChange={changeWallpaper} />
+      case 'terminal': return <TerminalApp onOpen={openApp} />
       case 'vscode':
         return (
           <Suspense fallback={<div className="app-loading">Loading editor…</div>}>
@@ -101,7 +99,7 @@ function App() {
   return (
     <div className="desktop">
       <Wallpaper variant={wallpaper} />
-      <MenuBar activeTitle={activeTitle} />
+      <MenuBar activeTitle={activeTitle} wallpaper={wallpaper} onWallpaper={changeWallpaper} />
       <div className="desktop-icons">
         {APPS.map((a) => (
           <button
