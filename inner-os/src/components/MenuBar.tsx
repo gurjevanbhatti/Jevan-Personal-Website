@@ -96,20 +96,24 @@ export default function MenuBar({ activeTitle, wallpaper, onWallpaper }: Props) 
               start is the Terminal: type <b>help</b> and press enter.
             </p>
             <div className="menu-drop-head">Get in touch</div>
-            <button className="menu-drop-item" onMouseDown={copyEmail}>
+            <button className="menu-drop-item" onClick={copyEmail}>
               <span className="menu-tick">{copied ? '✓' : ''}</span>
               {copied ? 'Copied to clipboard' : profile.email}
             </button>
-            <a
+            <button
               className="menu-drop-item"
-              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}`}
-              target="_blank"
-              rel="noreferrer"
-              onMouseDown={() => setOpen(null)}
+              onClick={() => {
+                window.open(
+                  `https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}`,
+                  '_blank',
+                  'noopener'
+                )
+                setOpen(null)
+              }}
             >
               <span className="menu-tick" />
               Compose in Gmail
-            </a>
+            </button>
           </div>
         )}
         </span>
