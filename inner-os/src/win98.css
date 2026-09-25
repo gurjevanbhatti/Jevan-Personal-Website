@@ -867,7 +867,7 @@
 .menubar-item { cursor: pointer; padding: 2px 4px; border-radius: 3px; opacity: 1; }
 .menubar-item:hover, .menubar-item.on { background: rgba(230,120,165,0.18); color: #b3246e; }
 .menu-drop {
-  position: absolute; top: 20px; left: 0; min-width: 176px; z-index: 9600;
+  position: absolute; top: 20px; left: 0; min-width: 208px; z-index: 9600;
   background: rgba(255,252,253,0.97); backdrop-filter: blur(12px);
   border: 1px solid rgba(0,0,0,0.12); border-radius: 8px;
   box-shadow: 0 10px 26px rgba(120,60,90,0.22); padding: 5px;
@@ -885,7 +885,7 @@
 .menu-drop-item:hover { background: #f8d8e5; }
 .menu-tick { width: 11px; flex-shrink: 0; color: #d6338a; font-size: 10px; }
 .menu-drop-note {
-  margin: 0; padding: 2px 9px 8px; font-family: var(--mono-font);
+  margin: 0; padding: 2px 9px 6px; font-family: var(--mono-font);
   font-size: 10.5px; line-height: 1.6; color: #6b5560; max-width: 210px;
 }
 
@@ -902,6 +902,7 @@
 .term-in { color: #ffeaf4; }
 .term-out { color: #f3dbe6; }
 .term-head { color: #ff9dc8; font-weight: 700; margin-top: 10px !important; }
+.term-para { color: #f3dbe6; margin-top: 11px !important; max-width: 74ch; }
 .term-dim { color: #b38ba0; }
 .term-prompt { color: #ff6fae; font-weight: 700; }
 .term-line { display: flex; align-items: baseline; gap: 7px; }

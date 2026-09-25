@@ -18,7 +18,7 @@ const SHORTCUTS = [
   { img: 'linkedin', h: 49, label: 'Linkedin', url: profile.linkedin },
   { img: 'gt', h: 40, label: 'Georgia Tech', url: 'https://www.gatech.edu/' },
   { img: 'sfu', h: 61, label: 'SFU', url: 'https://www.sfu.ca/' },
-  { img: 'email', h: 48, label: 'Email', url: `mailto:${profile.email}` },
+  { img: 'email', h: 48, label: 'Email', url: `https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}` },
   { img: 'resume', h: 59, label: 'Resume', url: '/inner-os/resume.pdf' },
 ]
 
@@ -49,7 +49,7 @@ function pretty(url: string): string {
 
 function tabTitle(url: string): string {
   if (url === HOME) return 'Safari'
-  if (url.startsWith('mailto:')) return 'Mail'
+  if (url.startsWith('mailto:') || url.includes('mail.google.com')) return 'Mail'
   if (url.startsWith('/')) return 'Resume'
   const q = pretty(url)
   if (q !== url) return q

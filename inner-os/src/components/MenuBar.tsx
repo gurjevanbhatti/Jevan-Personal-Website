@@ -12,6 +12,24 @@ export default function MenuBar({ activeTitle, wallpaper, onWallpaper }: Props) 
   const [now, setNow] = useState(() => new Date())
   const [open, setOpen] = useState<string | null>(null)
   const bar = useRef<HTMLDivElement>(null)
+  const [copied, setCopied] = useState(false)
+
+  /* mailto: links do nothing for anyone without a mail app set up, so hand
+     over the address instead */
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(profile.email)
+    } catch {
+      const t = document.createElement('textarea')
+      t.value = profile.email
+      document.body.appendChild(t)
+      t.select()
+      document.execCommand('copy')
+      t.remove()
+    }
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1800)
+  }
 
   useEffect(() => {
     const t = setInterval(() => setNow(new Date()), 15000)
@@ -73,16 +91,24 @@ export default function MenuBar({ activeTitle, wallpaper, onWallpaper }: Props) 
           <div className="menu-drop">
             <div className="menu-drop-head">Getting around</div>
             <p className="menu-drop-note">
-              Double-click an icon, or click one in the dock below. Drag a window
-              by its title bar. Try the Terminal, then type <b>help</b>.
+              Everything on this desktop works. Click an app in the dock at the
+              bottom, or double-click an icon on the desktop. A good place to
+              start is the Terminal: type <b>help</b> and press enter.
             </p>
+            <div className="menu-drop-head">Get in touch</div>
+            <button className="menu-drop-item" onMouseDown={copyEmail}>
+              <span className="menu-tick">{copied ? '✓' : ''}</span>
+              {copied ? 'Copied to clipboard' : profile.email}
+            </button>
             <a
               className="menu-drop-item"
-              href={`mailto:${profile.email}`}
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}`}
+              target="_blank"
+              rel="noreferrer"
               onMouseDown={() => setOpen(null)}
             >
               <span className="menu-tick" />
-              Email Jevan
+              Compose in Gmail
             </a>
           </div>
         )}

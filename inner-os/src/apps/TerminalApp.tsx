@@ -2,19 +2,26 @@ import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import { profile, education, skills, experience, projects } from '../data/content'
 import type { AppId } from '../types'
 
-type Line = { kind: 'in' | 'out' | 'head' | 'dim'; text: string }
+type Line = { kind: 'in' | 'out' | 'head' | 'dim' | 'para'; text: string }
 
 const PROMPT = 'jevan@desk ~ %'
 
 const COMMANDS = [
-  'help', 'whoami', 'about', 'experience', 'education',
+  'help', 'whoisjevan', 'experience', 'education',
   'skills', 'projects', 'contact', 'resume', 'open',
   'date', 'clear', 'ls', 'sudo',
 ]
 
+/* the version I would actually say out loud, about a minute */
+const SUMMARY = [
+  'I build the infrastructure that machine learning actually runs on. I care as much about whether a system holds up under load as whether the model is clever.',
+  'I studied data science at Simon Fraser. In 2024 I spent a summer with the AWS Solution Architect team, deploying serverless services across more than thirty regions. Last year I moved into production engineering with Meta through Major League Hacking, containerizing deployments and standing up monitoring so the whole system could be watched in real time.',
+  'In January I start my Master of Science in Data Science at Georgia Tech. What I want next is applied machine learning that has to survive real traffic and real users, not just a clean dataset.',
+]
+
 const banner: Line[] = [
-  { kind: 'head', text: `${profile.name}, ${profile.location}` },
-  { kind: 'dim', text: "type 'help' to see what this thing does" },
+  { kind: 'head', text: "Welcome to Jevan's Terminal" },
+  { kind: 'dim', text: "type 'help' to see the available commands" },
 ]
 
 export default function TerminalApp({ onOpen }: { onOpen: (id: AppId) => void }) {
@@ -46,29 +53,27 @@ export default function TerminalApp({ onOpen }: { onOpen: (id: AppId) => void })
       case 'help':
         say(
           { kind: 'head', text: 'commands' },
-          { kind: 'out', text: '  whoami       who you are talking to' },
-          { kind: 'out', text: '  about        the short version' },
-          { kind: 'out', text: '  experience   where I have worked' },
-          { kind: 'out', text: '  education    school' },
-          { kind: 'out', text: '  skills       languages, frameworks, tools' },
-          { kind: 'out', text: '  projects     what I have built' },
+          { kind: 'out', text: '  whoisjevan   a short summary of who I am' },
+          { kind: 'out', text: '  experience   roles I have held' },
+          { kind: 'out', text: '  education    my educational background' },
+          { kind: 'out', text: '  skills       languages, frameworks and tools' },
+          { kind: 'out', text: '  projects     selected work' },
           { kind: 'out', text: '  contact      how to reach me' },
-          { kind: 'out', text: '  resume       opens the PDF' },
-          { kind: 'out', text: '  open <app>   showcase | vscode | safari | credits' },
-          { kind: 'out', text: '  ls, date, clear' },
+          { kind: 'out', text: '  resume       opens my resume PDF' },
+          { kind: 'out', text: '  open <app>   launch showcase, vscode, safari or credits' },
+          { kind: 'out', text: '  ls           list every command' },
+          { kind: 'out', text: '  date         the current date and time' },
+          { kind: 'out', text: '  clear        clear the screen' },
           { kind: 'dim', text: '  ↑ ↓ for history, tab to complete' }
         )
         break
 
-      case 'whoami':
+      case 'whoisjevan':
         say(
-          { kind: 'out', text: profile.name },
-          { kind: 'dim', text: `${profile.title} · ${profile.location}` }
+          { kind: 'head', text: profile.name },
+          { kind: 'dim', text: profile.title },
+          ...SUMMARY.map((text) => ({ kind: 'para' as const, text }))
         )
-        break
-
-      case 'about':
-        say({ kind: 'out', text: profile.bio })
         break
 
       case 'experience':

@@ -23,9 +23,9 @@ function App() {
   const [wallpaper, setWallpaper] = useState<WallpaperId>(() => {
     try {
       const saved = localStorage.getItem('wallpaper') as WallpaperId | null
-      return saved && WALLPAPERS.some((x) => x.id === saved) ? saved : 'marble'
+      return saved && WALLPAPERS.some((x) => x.id === saved) ? saved : 'barbie'
     } catch {
-      return 'marble'
+      return 'barbie'
     }
   })
 
