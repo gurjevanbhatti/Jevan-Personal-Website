@@ -172,7 +172,7 @@ export const experience = [
 export const projects = [
   {
     name: 'Brick Kiln Detection',
-    subtitle: '1st place winner, satellite image classification competition',
+    subtitle: "1st place, SFU master's-level machine learning competition",
     date: 'November 2025',
     badge: { src: '/inner-os/badges/first.png', alt: '1st place' },
     tech: ['Python', 'PyTorch', 'EfficientNetV2', 'ResNet-50', 'scikit-learn'],
