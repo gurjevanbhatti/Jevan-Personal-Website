@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Jevan Bhatti',
   title: 'Software Engineer',
-  showcaseYear: "Showcase '26",
+  showcaseYear: "Portfolio '26",
   location: 'Vancouver, BC, Canada',
   email: 'gurjevanbhatti@gmail.com',
   phone: '+1 (778) 929-6638',

@@ -60,7 +60,7 @@ export default function TerminalApp({ onOpen }: { onOpen: (id: AppId) => void })
           { kind: 'out', text: '  projects     selected work' },
           { kind: 'out', text: '  contact      how to reach me' },
           { kind: 'out', text: '  resume       opens my resume PDF' },
-          { kind: 'out', text: '  open <app>   launch showcase, vscode, safari or credits' },
+          { kind: 'out', text: '  open <app>   launch portfolio, vscode, safari or credits' },
           { kind: 'out', text: '  ls           list every command' },
           { kind: 'out', text: '  date         the current date and time' },
           { kind: 'out', text: '  clear        clear the screen' },
@@ -132,6 +132,7 @@ export default function TerminalApp({ onOpen }: { onOpen: (id: AppId) => void })
 
       case 'open': {
         const map: Record<string, AppId> = {
+          portfolio: 'showcase',
           showcase: 'showcase',
           vscode: 'vscode',
           code: 'vscode',
@@ -144,7 +145,7 @@ export default function TerminalApp({ onOpen }: { onOpen: (id: AppId) => void })
           onOpen(target)
           say({ kind: 'out', text: `opening ${args[0]}…` })
         } else {
-          say({ kind: 'out', text: 'open what? showcase | vscode | safari | credits' })
+          say({ kind: 'out', text: 'open what? portfolio | vscode | safari | credits' })
         }
         break
       }
