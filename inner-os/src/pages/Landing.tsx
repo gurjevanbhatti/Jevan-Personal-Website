@@ -1,14 +1,13 @@
 import { highlights, photos, profile } from '../data/content'
-import type { PageId } from '../types'
 import Emphasize from '../components/Emphasize'
+import ExperienceTimeline from '../components/ExperienceTimeline'
 import PhotoGrid from '../components/PhotoGrid'
+import SkillList from '../components/SkillList'
 import SocialLinks from '../components/SocialLinks'
 
-interface Props {
-  onNavigate: (page: PageId) => void
-}
+const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
-export default function Landing({ onNavigate }: Props) {
+export default function Landing() {
   return (
     <div className="pf-page pf-page-wide">
       <section className="pf-hero">
@@ -40,13 +39,23 @@ export default function Landing({ onNavigate }: Props) {
             <a className="pf-btn pf-btn-primary" href="/inner-os/resume.pdf" target="_blank" rel="noreferrer">
               View resume
             </a>
-            <button className="pf-btn" onClick={() => onNavigate('experience')}>
+            <button className="pf-btn" onClick={() => scrollTo('experience')}>
               See my work
             </button>
           </div>
           <SocialLinks />
         </div>
         <PhotoGrid photos={photos} />
+      </section>
+
+      <section className="pf-section" id="experience">
+        <h2 className="pf-h2">Experience</h2>
+        <ExperienceTimeline />
+      </section>
+
+      <section className="pf-section" id="skills">
+        <h2 className="pf-h2">Skills</h2>
+        <SkillList />
       </section>
     </div>
   )

@@ -9,8 +9,6 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/gurjevan-kaur-bhatti-35b42a185',
   tagline:
     'Software engineer and data scientist in Vancouver. I build cloud infrastructure and applied ML tools that hold up in production.',
-  intro:
-    "I'm pursuing a Master of Science in Data Science at Georgia Tech, after completing my B.S. in Data Science at Simon Fraser University.",
   bio: "I've spent the last couple years bouncing between backend infrastructure, cloud architecture, and applied ML — deploying serverless systems built to handle hundreds of thousands of requests a second, and building AI tools aimed at solving real problems rather than just demoing well. I like projects that force me to learn the boring, load-bearing parts of a system, not just the parts that look good in a demo.",
 }
 
@@ -79,10 +77,32 @@ export const experience = [
     bullets: [
       'Achieved 90% code coverage across the open-source repository by authoring 20+ unit and integration tests, optimizing database queries to execute in under 2 milliseconds.',
       'Collaborated with Meta Engineers in an Agile environment to integrate Prometheus and Grafana, establishing real-time system visualization and container monitoring for the deployment environment.',
-      'Architected the deployment pipeline on a DigitalOcean VPS, securing traffic with SSL/HTTPS, and utilizing Docker for consistent containerized isolation.',
-      'Engineered a production-ready Flask & MySQL web application template, establishing a reusable, scalable architecture for deploying secure environments.',
-      'Automated system recovery and deployment workflows using CI/CD pipelines to ensure high availability and reliable delivery of application updates.',
     ],
+    tech: ['Flask', 'MySQL', 'Docker', 'CI/CD', 'Grafana'],
+  },
+  {
+    company: 'Simon Fraser University (SFU)',
+    link: 'https://www.sfu.ca/',
+    logo: '/inner-os/sf/logo-sfu.png',
+    role: 'Software Engineer Intern',
+    date: 'May 2025 - Aug 2025',
+    bullets: [
+      "Led early-stage modernization of Peru's dairy traceability infrastructure by architecting a full-stack digital quality management platform (React, TypeScript, Express, PostgreSQL) within a national dairy market serving ~24M consumers.",
+      'Automated manual reconciliation, lab reporting, and supplier performance tracking workflows across operations and QA teams, driving up to 30% operational efficiency improvement and modeling up to ~$100K in annualized labor cost savings.',
+    ],
+    tech: ['React', 'TypeScript', 'Express', 'PostgreSQL'],
+  },
+  {
+    company: 'Simon Fraser University (SFU)',
+    link: 'https://www.sfu.ca/',
+    logo: '/inner-os/sf/logo-sfu.png',
+    role: 'Data Analyst Intern',
+    date: 'May 2025 - Aug 2025',
+    bullets: [
+      'Collaborated with Professor Jason Ho, PhD (UBC) to analyze enrollment trends across 200+ course sections, improving course scheduling for ~5,000+ current and future Beedie undergraduate students.',
+      'Built interactive Power BI dashboards to visualize fill rates, waitlists, and cancellation patterns, enabling leadership to identify 45% summer under-enrollment and 30% spring over-capacity, guiding resource reallocation decisions.',
+    ],
+    tech: ['SQL', 'Power BI'],
   },
   {
     company: 'Amazon - SFU x AWS Collaboration',
@@ -93,10 +113,8 @@ export const experience = [
     bullets: [
       'Developed a Spring Boot service in collaboration with the AWS Solution Architect Team, optimizing cross-region performance and reducing infrastructure latency by up to 85%.',
       'Designed and implemented a serverless, distributed architecture by deploying Lambdas across 30+ AWS regions using CDK, efficiently managing up to 330,000 client requests per second while ensuring performance and availability.',
-      'Developed a RAG chatbot with AWS Bedrock + Docker, enabling real-time retrieval of region trends, service availability, and incident reports; resolved 90% of user issues and reduced QA costs by thousands per month.',
-      'Implemented a multi-region latency visualization feature using AWS API Gateway and DynamoDB, enabling trend analysis and performance benchmarking, improving decision-making for optimizing architecture.',
-      'Conducted end-to-end API testing with Postman, ensuring cross-region performance stability and reliability of the system.',
     ],
+    tech: ['Spring Boot', 'AWS Lambda', 'CDK', 'Bedrock', 'DynamoDB'],
   },
 ]
 

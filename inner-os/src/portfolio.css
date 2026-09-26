@@ -140,19 +140,6 @@
   font-size: 13px;
 }
 
-.pf-link {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: var(--pf-accent);
-  font-weight: 500;
-}
-
-.pf-link:hover {
-  text-decoration: underline;
-}
-
 /* ---------- Type ---------- */
 .pf-display {
   margin: 0 0 12px;
@@ -354,7 +341,6 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-bottom: 28px;
 }
 
 /* ---------- Lists ---------- */
@@ -376,11 +362,20 @@
   color: var(--pf-ink);
 }
 
-/* ---------- Experience timeline ---------- */
-.pf-intro {
-  margin-top: -8px !important;
-  margin-bottom: 28px !important;
+/* ---------- Home sections ---------- */
+.pf-section {
+  margin-top: 48px;
+  padding-top: 36px;
+  border-top: 1px solid var(--pf-line);
+  scroll-margin-top: 12px;
 }
+
+.pf-section > .pf-h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+/* ---------- Experience timeline ---------- */
 
 .pf-xp {
   list-style: none;
@@ -390,21 +385,8 @@
 
 .pf-xp-item {
   display: grid;
-  grid-template-columns: 96px 44px 1fr;
-  column-gap: 20px;
-}
-
-.pf-xp-date {
-  padding-top: 11px;
-  text-align: right;
-  font-size: 12.5px;
-  line-height: 1.5;
-  color: var(--pf-muted);
-  font-variant-numeric: tabular-nums;
-}
-
-.pf-xp-date-inline {
-  display: none;
+  grid-template-columns: 44px 1fr;
+  column-gap: 18px;
 }
 
 .pf-xp-node {
@@ -525,8 +507,6 @@
   .pf-photos { order: -1; max-width: 200px; }
   .pf-display { font-size: 42px; }
   .pf-grid { grid-template-columns: 1fr; }
-  .pf-xp-item { grid-template-columns: 44px 1fr; column-gap: 14px; }
-  .pf-xp-date { display: none; }
-  .pf-xp-date-inline { display: block; }
+  .pf-xp-item { column-gap: 14px; }
   .pf-row-head { flex-direction: column; gap: 2px; }
 }

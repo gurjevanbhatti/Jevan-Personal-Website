@@ -2,8 +2,6 @@ import { useRef, useState } from 'react'
 import type { PageId } from './types'
 import TopNav from './components/TopNav'
 import Landing from './pages/Landing'
-import About from './pages/About'
-import Experience from './pages/Experience'
 import Education from './pages/Education'
 import Projects from './pages/Projects'
 import Contact from './pages/Contact'
@@ -22,9 +20,7 @@ export default function Showcase() {
     <div className="pf">
       <TopNav current={page} onNavigate={navigate} />
       <div className="pf-body" ref={bodyRef}>
-        {page === 'home' && <Landing onNavigate={navigate} />}
-        {page === 'about' && <About onNavigate={navigate} />}
-        {page === 'experience' && <Experience />}
+        {page === 'home' && <Landing />}
         {page === 'education' && <Education />}
         {page === 'projects' && <Projects />}
         {page === 'contact' && <Contact />}
