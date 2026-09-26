@@ -8,31 +8,36 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/gurjevan-kaur-bhatti-35b42a185',
 }
 
-// The About page, in Jevan's own words: text rows with a photo each, then snapshots.
+// The About page: Jevan's story in order, like chapters, then snapshots.
 export const about = {
-  quote: 'It feels powerful to build something on your own terms.',
-  rows: [
+  quote: 'Switching my major was the greatest decision I have ever made.',
+  chapters: [
     {
+      title: ['Where it', 'started'],
       text: [
-        "What I love most about computer science is the freedom. You can wake up with an idea and build it that same day, entirely on your own terms. Not many fields let you do that, and I still think it's remarkable.",
+        "If you'd met me in elementary school, you probably wouldn't have guessed I'd end up here. I wasn't a great student, and school just never really clicked for me.",
+        "That changed in high school, when I fell in love with math. Suddenly it felt easy, because at its core, math is just patterns. It still feels that way, and it's the same reason LeetCode feels more like a puzzle than a chore to me.",
+      ],
+    },
+    {
+      title: ['Finding my', 'path'],
+      text: [
+        "Everyone in my family works in healthcare, so biology felt like the natural path. I spent a couple of years in it before I realized healthcare just isn't where I belong. In pretty much my fourth year, I switched my major to data science. It was late in the game, but it was the greatest decision I have ever made.",
+        "What I love most about it is the freedom. You can wake up with an idea and build it that same day, entirely on your own terms. Next, I get to keep doing that in my Master's in Data Science at Georgia Tech.",
       ],
       photo: { src: '/inner-os/photos/about-coding.jpg', alt: 'Laptop showing the code for this website', caption: 'A real photo of me building this website.' },
     },
     {
+      title: ['Outside of', 'code'],
       text: [
-        "I've always loved math because, at its core, it's patterns. That's also why LeetCode feels more like a puzzle than a chore to me. Data science is where the two meet: find the pattern, then build something with it.",
         'I love hackathons, even the ones we lose, because trying something new with friends is the fun part.',
+        "I also create content for about 25K followers, which lets me be creative on my own terms. And when I'm not building or filming, I'm probably planning my next vacation.",
       ],
       photo: { src: '/inner-os/photos/about-hackathon.jpg', alt: 'Jevan and three friends at a hackathon', caption: "My friends and me at a hackathon we didn't win. Still one of my favourites." },
     },
-    {
-      text: [
-        "That same love of freedom shows up everywhere else in my life. I create content for about 25K followers because it lets me be creative on my own terms, and when I'm not building or filming, I'm probably planning my next vacation.",
-      ],
-      photo: { src: '/inner-os/photos/about-plane.jpg', alt: 'City lights seen from a plane window at night', caption: 'Somewhere between trips.', position: 'top' },
-    },
   ],
   snapshots: [
+    { src: '/inner-os/photos/about-plane.jpg', alt: 'City lights seen from a plane window at night' },
     { src: '/inner-os/photos/snap-pink.jpg', alt: 'Pink leggings and sneakers on an escalator' },
     { src: '/inner-os/photos/snap-flowers.jpg', alt: 'Jevan holding a bouquet of pink flowers' },
     { src: '/inner-os/photos/snap-ramen.jpg', alt: 'Two bowls of ramen' },
@@ -170,9 +175,9 @@ export const projects = [
     subtitle: '2nd place winner, 2024 cmd-f hackathon',
     date: 'April 2024',
     tech: ['Python', 'JavaScript', 'HTML', 'CSS', 'PostgreSQL', 'Node.js', 'Mapbox API'],
+    media: { kind: 'youtube', id: 'LY2TVymYyNM', title: 'RED SEA demo video' },
     bullets: [
-      "Spearheaded the development of an AI-powered web app that predicts the safest evacuation routes for refugees fleeing war in Palestine, securing 2nd place at Canada's largest hackathon for women with 300+ participants.",
-      'Leveraged Amazon Aurora and PostgreSQL to optimize the querying process, efficiently storing 15,000 records of war casualties and geospatial data and achieving a rapid response time of 0.25 milliseconds during peak usage.',
+      "Built an AI-powered web app that finds the safest evacuation routes for refugees fleeing war in Palestine, using 15,000 records of conflict and geospatial data, and took 2nd place out of 300+ participants at Canada's largest women's hackathon.",
     ],
   },
   {
@@ -180,10 +185,14 @@ export const projects = [
     subtitle: 'Engagement analytics for Meta Digital Creators',
     date: 'February 2024',
     tech: ['Python', 'SQL', 'Pandas', 'NumPy', 'PostgreSQL', 'GitHub'],
+    media: {
+      kind: 'image',
+      src: '/inner-os/photos/project-ig-features.png',
+      alt: 'Bar chart of random forest feature importance: shares per view is highest, then comments, likes and saves per view',
+      caption: 'Shares per view turned out to be the strongest signal of a high-view post.',
+    },
     bullets: [
-      'Led development of an engagement analytics blueprint with Meta Digital Creators to identify drivers of high-performing content, analyzing 50M+ views from 1M+ posts.',
-      'Developed a scalable data system handling 5K+ daily interactions with >99% accuracy, cutting manual analysis time by 40% and enabling faster decision-making.',
-      'Collaborated in a SCRUM environment with Meta Digital Creators to source and prepare raw engagement data, powering analytics that informed growth strategies for 25K+ followers.',
+      'Analyzed 50M+ views across 1M+ posts with Meta Digital Creators to find what drives high-performing content, building a data system that handles 5K+ daily interactions and cut manual analysis time by 40%.',
     ],
   },
 ]

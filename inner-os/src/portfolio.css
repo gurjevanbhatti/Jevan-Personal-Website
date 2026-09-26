@@ -484,8 +484,41 @@
   color: var(--pf-accent);
 }
 
+/* Story chapters, told in order */
+.pf-chapter + .pf-chapter {
+  margin-top: 8px;
+}
+
+.pf-chapter-title {
+  margin: 0 0 12px;
+  font-family: var(--pf-serif);
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.pf-chapter-title em {
+  font-style: italic;
+  color: var(--pf-accent);
+}
+
+.pf-about.no-photo {
+  display: block;
+  max-width: 680px;
+}
+
+/* in a story chapter the text starts right under its heading */
+.pf-chapter .pf-about {
+  align-items: start;
+}
+
+/* keep the drop cap from pushing the next paragraph sideways */
+.pf-chapter:first-child p + p {
+  clear: left;
+}
+
 /* Drop cap on the very first paragraph */
-.pf-about:first-of-type p:first-child::first-letter {
+.pf-chapter:first-child p:first-child::first-letter {
   float: left;
   margin: 5px 8px 0 -2px;
   font-family: var(--pf-serif);
@@ -548,7 +581,7 @@
 
 .pf-snapshots {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   padding-top: 8px;
 }
@@ -634,6 +667,42 @@
   margin-top: 12px;
 }
 
+.pf-media {
+  margin: 14px 0 4px;
+  border: 1px solid var(--pf-line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.pf-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #fff;
+}
+
+.pf-media figcaption {
+  padding: 8px 12px 10px;
+  border-top: 1px solid var(--pf-line);
+  font-size: 12.5px;
+  color: var(--pf-muted);
+  text-align: center;
+}
+
+.pf-video {
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.pf-video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 /* ---------- Contact ---------- */
 .pf-contact {
   margin: 28px 0 0;
@@ -670,6 +739,7 @@
   .pf-display { font-size: 42px; }
   .pf-grid, .pf-about, .pf-about.is-flipped, .pf-skill-grid { grid-template-columns: 1fr; }
   .pf-about.is-flipped > :first-child { order: 0; }
+  .pf-snapshots { grid-template-columns: repeat(2, 1fr); }
   .pf-xp-item { column-gap: 14px; }
   .pf-row-head { flex-direction: column; gap: 2px; }
 }
