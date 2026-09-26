@@ -8,18 +8,35 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/gurjevan-kaur-bhatti-35b42a185',
 }
 
-// The "About me" section on the home page, in Jevan's own words.
+// The About page, in Jevan's own words: text rows with a photo each, then snapshots.
 export const about = {
-  paragraphs: [
-    "What I love most about computer science is the freedom. You can wake up with an idea and build it that same day, entirely on your own terms. Not many fields let you do that, and I still think it's remarkable.",
-    "I've always loved math because, at its core, it's patterns. That's also why LeetCode feels more like a puzzle than a chore to me. Data science is where the two meet: find the pattern, then build something with it.",
-    "That same love of freedom shows up everywhere else in my life. I love hackathons, even the ones we lose, because trying something new with friends is the fun part. I create content for about 25K followers because it lets me be creative on my own terms, and when I'm not building or filming, I'm probably planning my next vacation.",
+  quote: 'It feels powerful to build something on your own terms.',
+  rows: [
+    {
+      text: [
+        "What I love most about computer science is the freedom. You can wake up with an idea and build it that same day, entirely on your own terms. Not many fields let you do that, and I still think it's remarkable.",
+      ],
+      photo: { src: '/inner-os/photos/about-coding.jpg', alt: 'Laptop showing the code for this website', caption: 'A real photo of me building this website.' },
+    },
+    {
+      text: [
+        "I've always loved math because, at its core, it's patterns. That's also why LeetCode feels more like a puzzle than a chore to me. Data science is where the two meet: find the pattern, then build something with it.",
+        'I love hackathons, even the ones we lose, because trying something new with friends is the fun part.',
+      ],
+      photo: { src: '/inner-os/photos/about-hackathon.jpg', alt: 'Jevan and three friends at a hackathon', caption: "My friends and me at a hackathon we didn't win. Still one of my favourites." },
+    },
+    {
+      text: [
+        "That same love of freedom shows up everywhere else in my life. I create content for about 25K followers because it lets me be creative on my own terms, and when I'm not building or filming, I'm probably planning my next vacation.",
+      ],
+      photo: { src: '/inner-os/photos/about-plane.jpg', alt: 'City lights seen from a plane window at night', caption: 'Somewhere between trips.', position: 'top' },
+    },
   ],
-  photo: {
-    src: '/inner-os/about-hackathon.jpg',
-    alt: 'Jevan and three friends at a hackathon',
-    caption: "My friends and me at a hackathon we didn't win. Still one of my favourites.",
-  },
+  snapshots: [
+    { src: '/inner-os/photos/snap-pink.jpg', alt: 'Pink leggings and sneakers on an escalator' },
+    { src: '/inner-os/photos/snap-flowers.jpg', alt: 'Jevan holding a bouquet of pink flowers' },
+    { src: '/inner-os/photos/snap-ramen.jpg', alt: 'Two bowls of ramen' },
+  ],
 }
 
 // One-liners for the home page, newest first.
@@ -32,7 +49,12 @@ export const highlights = [
 ]
 
 // Shown beside the highlights. Add more and the panel becomes a grid.
-export const photos = [{ src: '/inner-os/me-portrait.jpg', alt: 'Jevan Bhatti' }]
+export const photos = [
+  { src: '/inner-os/photos/home-portrait.jpg', alt: 'Jevan Bhatti' },
+  { src: '/inner-os/photos/home-coding.jpg', alt: 'Laptop with code and a git push in the terminal' },
+  { src: '/inner-os/photos/home-travel.jpg', alt: 'Jevan on a grand staircase while travelling' },
+  { src: '/inner-os/photos/home-convocation.jpg', alt: 'Rows of graduates in caps and gowns at SFU convocation' },
+]
 
 export const education = [
   {

@@ -7,8 +7,9 @@
   --pf-accent: #d31b77;
   --pf-accent-bright: #f0248e;
   --pf-blush: #fff5fa;
-  --pf-serif: 'Cormorant Garamond', Georgia, serif;
-  --pf-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --pf-serif: 'Instrument Serif', Georgia, serif;
+  --pf-hand: 'Caveat', cursive;
+  --pf-sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   container-type: inline-size;
   height: 100%;
@@ -64,8 +65,8 @@
   padding: 0;
   cursor: pointer;
   font-family: var(--pf-serif) !important;
-  font-size: 21px !important;
-  font-weight: 600;
+  font-size: 24px !important;
+  font-weight: 400;
   color: var(--pf-ink);
   white-space: nowrap;
 }
@@ -144,18 +145,19 @@
 .pf-display {
   margin: 0 0 12px;
   font-family: var(--pf-serif);
-  font-size: 54px;
-  font-weight: 600;
-  line-height: 1.02;
-  letter-spacing: -0.01em;
+  font-size: 68px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .pf-h2 {
   margin: 36px 0 16px;
   font-family: var(--pf-serif);
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 1.15;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
 }
 
 .pf-page > .pf-h2:first-child {
@@ -219,7 +221,10 @@
   max-width: 900px;
 }
 
-.pf-accent {
+.pf-accent,
+.pf-display em,
+.pf-h2 em {
+  font-style: italic;
   color: var(--pf-accent);
 }
 
@@ -320,7 +325,8 @@
   border-radius: 12px;
 }
 
-.pf-photos.is-grid img:first-child {
+/* with an odd number of photos, the first one spans the top row */
+.pf-photos.is-grid img:first-child:nth-last-child(odd) {
   grid-column: span 2;
 }
 
@@ -357,8 +363,8 @@
 .pf-skill-head {
   margin: 0 0 14px;
   font-family: var(--pf-serif);
-  font-size: 21px;
-  font-weight: 600;
+  font-size: 25px;
+  font-weight: 400;
   line-height: 1.2;
   white-space: nowrap;
 }
@@ -430,9 +436,19 @@
 /* ---------- About ---------- */
 .pf-about {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr 280px;
   gap: 40px;
-  align-items: start;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+/* every other row puts the photo on the left, like a magazine spread */
+.pf-about.is-flipped {
+  grid-template-columns: 280px 1fr;
+}
+
+.pf-about.is-flipped > :first-child {
+  order: 2;
 }
 
 .pf-about p {
@@ -440,29 +456,93 @@
   line-height: 1.75;
 }
 
-.pf-figure {
-  margin: 4px 0 0;
+/* Big pull quote in Jevan's own words */
+.pf-quote {
+  margin: 4px 0 40px;
+  padding: 0 0 0 22px;
+  border-left: 3px solid var(--pf-accent-bright);
+  font-family: var(--pf-serif);
+  font-style: italic;
+  font-size: 34px;
+  line-height: 1.2;
+  color: var(--pf-accent);
 }
 
-.pf-figure img {
+/* Drop cap on the very first paragraph */
+.pf-about:first-of-type p:first-child::first-letter {
+  float: left;
+  margin: 5px 8px 0 -2px;
+  font-family: var(--pf-serif);
+  font-size: 84px;
+  line-height: 0.78;
+  color: var(--pf-accent);
+}
+
+/* Scrapbook polaroids: white frame, a strip of washi tape, a slight tilt */
+.pf-polaroid {
+  position: relative;
+  margin: 12px 8px;
+  padding: 10px 10px 12px;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(34, 28, 32, 0.06), 0 12px 28px rgba(34, 28, 32, 0.12);
+  transform: rotate(2deg);
+  transition: transform 0.25s ease;
+}
+
+.pf-about.is-flipped .pf-polaroid,
+.pf-snapshots .pf-polaroid:nth-child(even) {
+  transform: rotate(-2.5deg);
+}
+
+.pf-polaroid:hover,
+.pf-about.is-flipped .pf-polaroid:hover,
+.pf-snapshots .pf-polaroid:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.pf-polaroid::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 84px;
+  height: 24px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(247, 180, 214, 0.75);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.pf-polaroid img {
   display: block;
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 1px;
 }
 
-.pf-figure figcaption {
+.pf-polaroid figcaption {
   margin-top: 10px;
-  font-size: 12.5px;
-  line-height: 1.5;
+  font-family: var(--pf-hand);
+  font-size: 21px;
+  line-height: 1.15;
   text-align: center;
-  color: var(--pf-muted);
+  color: #3d3439;
 }
 
-.pf-figure figcaption strong {
-  color: var(--pf-ink);
-  font-weight: 600;
+.pf-snapshots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding-top: 8px;
+}
+
+.pf-snapshots .pf-polaroid {
+  padding-bottom: 28px;
+}
+
+.pf-snapshots .pf-polaroid img {
+  aspect-ratio: 4 / 5;
 }
 
 /* ---------- Experience timeline ---------- */
@@ -570,7 +650,8 @@
   .pf-photos { order: -1; max-width: 220px; }
   .pf-photos img { aspect-ratio: 4 / 5; height: auto; }
   .pf-display { font-size: 42px; }
-  .pf-grid, .pf-about, .pf-skill-grid { grid-template-columns: 1fr; }
+  .pf-grid, .pf-about, .pf-about.is-flipped, .pf-skill-grid { grid-template-columns: 1fr; }
+  .pf-about.is-flipped > :first-child { order: 0; }
   .pf-xp-item { column-gap: 14px; }
   .pf-row-head { flex-direction: column; gap: 2px; }
 }

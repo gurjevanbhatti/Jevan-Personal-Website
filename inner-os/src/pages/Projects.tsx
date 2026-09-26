@@ -4,7 +4,7 @@ import Emphasize from '../components/Emphasize'
 export default function Projects() {
   return (
     <div className="pf-page">
-      <h2 className="pf-h2">Projects</h2>
+      <h2 className="pf-h2">Things I've <em>built</em></h2>
       <div className="pf-grid">
         {projects.map((p) => (
           <article className="pf-card" key={p.name}>

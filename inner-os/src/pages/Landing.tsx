@@ -45,12 +45,12 @@ export default function Landing() {
       </section>
 
       <section className="pf-section" id="experience">
-        <h2 className="pf-h2">Experience</h2>
+        <h2 className="pf-h2">Where I've <em>worked</em></h2>
         <ExperienceTimeline />
       </section>
 
       <section className="pf-section" id="skills">
-        <h2 className="pf-h2">Skills</h2>
+        <h2 className="pf-h2">What I <em>work with</em></h2>
         <SkillList />
       </section>
     </div>

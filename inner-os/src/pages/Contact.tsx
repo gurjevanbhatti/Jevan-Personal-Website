@@ -10,7 +10,7 @@ export default function Contact() {
 
   return (
     <div className="pf-page">
-      <h2 className="pf-h2">Get in touch</h2>
+      <h2 className="pf-h2">Let's <em>talk</em></h2>
       <p className="pf-lede">Questions, opportunities, or just want to say hi? Email is the fastest way to reach me.</p>
       <a className="pf-btn pf-btn-primary" href={`mailto:${profile.email}`}>Email me</a>
 
