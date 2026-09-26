@@ -56,9 +56,23 @@ export class MonitorKeyframe extends CameraKeyframeInstance {
     }
 
     update() {
-        const aspect = this.sizes.height / this.sizes.width;
-        const additionalZoom = this.sizes.width < 768 ? 0 : 600;
-        this.targetPos.z = this.origin.z + aspect * 1200 - additionalZoom;
+        /* Sit exactly close enough that the desktop fills the viewport. The
+           screen plane is 1280x1024 with 32px of bezel, so the part worth
+           seeing is 1216x960; fit whichever of its dimensions binds first. */
+        const FOV = 35;
+        const SCREEN_Z = 255;
+        const halfW = 1216 / 2;
+        const halfH = 960 / 2;
+
+        const t = Math.tan((FOV * Math.PI) / 360);
+        const aspect = this.sizes.width / this.sizes.height;
+
+        const distForHeight = halfH / t;
+        const distForWidth = halfW / (t * aspect);
+
+        // 1.02 leaves the thinnest sliver of bezel so it still reads as a screen
+        this.targetPos.z =
+            SCREEN_Z + Math.max(distForHeight, distForWidth) * 1.02;
         this.position.copy(this.targetPos);
     }
 }

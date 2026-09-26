@@ -52,12 +52,14 @@ const InterfaceUI: React.FC<InterfaceUIProps> = ({}) => {
                 interfaceRef.current.style.pointerEvents = 'auto';
             }
         });
-        // held zoom keeps the overlay up, so there is always a way back out
-        UIEventBus.on('zoomLock', (locked: boolean) => {
-            setVisible(true);
+        // the controls stay on screen whatever the camera is doing, so there
+        // is always a way back out
+        UIEventBus.on('cameraMode', (mode: string) => {
+            const inScreen = mode === 'monitor';
+            setVisible(!inScreen);
             setInitLoad(false);
             if (interfaceRef.current) {
-                interfaceRef.current.style.pointerEvents = locked
+                interfaceRef.current.style.pointerEvents = inScreen
                     ? 'none'
                     : 'auto';
             }

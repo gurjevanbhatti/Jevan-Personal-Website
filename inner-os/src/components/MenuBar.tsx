@@ -120,6 +120,23 @@ export default function MenuBar({ activeTitle, wallpaper, onWallpaper }: Props) 
       </div>
 
       <div className="menubar-right">
+        <button
+          className="menubar-exit"
+          onClick={() => window.parent?.postMessage({ type: 'exitMonitor' }, '*')}
+          title="Zoom back out to the desk"
+        >
+          <svg viewBox="0 0 16 16" aria-hidden>
+            <path
+              d="M6.2 9.8 1.8 14.2M6.2 9.8H2.6M6.2 9.8v3.6M9.8 6.2l4.4-4.4M9.8 6.2h3.6M9.8 6.2V2.6"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          Exit
+        </button>
         <span className="menubar-glyph">▮▮▮</span>
         <span className="menubar-glyph">100%</span>
         <span>{now.toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric' })}</span>

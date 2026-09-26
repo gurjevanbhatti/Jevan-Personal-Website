@@ -584,6 +584,15 @@
 .menubar-app { font-weight: 700; }
 .menubar-item { opacity: .75; }
 .menubar-glyph { opacity: .6; letter-spacing: -1px; }
+.menubar-exit {
+  display: flex; align-items: center; gap: 5px; cursor: pointer;
+  background: rgba(230,120,165,0.16); border: 1px solid rgba(214,51,138,0.3);
+  border-radius: 999px; padding: 1px 9px 1px 7px;
+  font-family: var(--mono-font); font-size: 10px; color: #b3246e;
+  transition: background 0.15s ease;
+}
+.menubar-exit svg { width: 11px; height: 11px; }
+.menubar-exit:hover { background: rgba(230,120,165,0.34); }
 
 /* ---------- dock ---------- */
 .dock {

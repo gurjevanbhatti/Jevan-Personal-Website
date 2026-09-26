@@ -33,6 +33,9 @@ export default class MonitorScreen extends EventEmitter {
     inComputer: boolean;
     mouseClickInProgress: boolean;
     zoomLocked: boolean;
+    fullscreenFrame: HTMLIFrameElement | null;
+    fullscreenTimer: number | undefined;
+    roomTimer: number | undefined;
     dimmingPlane: THREE.Mesh;
     videoTextures: { [key in string]: THREE.VideoTexture };
 
@@ -51,8 +54,25 @@ export default class MonitorScreen extends EventEmitter {
         this.mouseClickInProgress = false;
         this.shouldLeaveMonitor = false;
         this.zoomLocked = false;
-        UIEventBus.on('zoomLock', (locked: boolean) => {
-            this.zoomLocked = locked;
+        this.fullscreenFrame = null;
+        UIEventBus.on('loadingScreenDone', () => {
+            setTimeout(() => this.buildFullscreen(), 1200);
+        });
+        UIEventBus.on('cameraMode', (mode: string) => {
+            this.zoomLocked = mode === 'monitor';
+            this.setRoomVisible(mode !== 'monitor');
+            this.setFullscreen(mode === 'monitor');
+        });
+
+        // the desktop inside the screen can ask to be zoomed back out
+        window.addEventListener('message', (event) => {
+            if (event.data?.type !== 'exitMonitor') return;
+            this.zoomLocked = false;
+            this.inComputer = false;
+            this.prevInComputer = false;
+            UIEventBus.dispatch('zoomRelease', {});
+            UIEventBus.dispatch('cameraMode', 'idle');
+            this.camera.trigger('leftMonitor');
         });
 
         // Create screen
@@ -61,6 +81,72 @@ export default class MonitorScreen extends EventEmitter {
         const maxOffset = this.createTextureLayers();
         this.createEnclosingPlanes(maxOffset);
         this.createPerspectiveDimmer(maxOffset);
+    }
+
+    /**
+     * A 5:4 screen cannot fill a widescreen window, so while the camera is at
+     * the monitor the room is faded out and only the screen is left lit.
+     */
+    setRoomVisible(visible: boolean) {
+        const layers = ['webgl', 'overlay', 'css'].map((id) =>
+            document.getElementById(id)
+        );
+        window.clearTimeout(this.roomTimer);
+
+        if (visible) {
+            layers.forEach((el) => el && (el.style.visibility = 'visible'));
+            document.body.style.background = '';
+            return;
+        }
+
+        // wait for the flat copy to be fully opaque, then stop drawing the room
+        this.roomTimer = window.setTimeout(() => {
+            layers.forEach((el) => el && (el.style.visibility = 'hidden'));
+            document.body.style.background = '#0b0b10';
+        }, 1550);
+    }
+
+    /**
+     * Once the camera has travelled in, hand over to a plain full-window copy of
+     * the desktop. A 5:4 screen seen in perspective can never match the flat
+     * page, and the flat page is what is actually readable.
+     */
+    buildFullscreen() {
+        if (this.fullscreenFrame) return this.fullscreenFrame;
+        const frame = document.createElement('iframe');
+        frame.src = '/inner-os/index.html';
+        frame.id = 'fullscreen-screen';
+        frame.title = 'JevanOS';
+        frame.style.position = 'fixed';
+        frame.style.top = '0';
+        frame.style.left = '0';
+        frame.style.width = '100%';
+        frame.style.height = '100%';
+        frame.style.border = 'none';
+        frame.style.zIndex = '50';
+        frame.style.opacity = '0';
+        frame.style.pointerEvents = 'none';
+        frame.style.transition = 'opacity 0.55s ease';
+        document.body.appendChild(frame);
+        this.fullscreenFrame = frame;
+        return frame;
+    }
+
+    setFullscreen(on: boolean) {
+        window.clearTimeout(this.fullscreenTimer);
+        const frame = this.buildFullscreen();
+
+        if (!on) {
+            frame.style.opacity = '0';
+            frame.style.pointerEvents = 'none';
+            return;
+        }
+
+        // start the cross-fade as the camera settles, so the two views line up
+        this.fullscreenTimer = window.setTimeout(() => {
+            frame.style.pointerEvents = 'auto';
+            frame.style.opacity = '1';
+        }, 950);
     }
 
     initializeScreenEvents() {

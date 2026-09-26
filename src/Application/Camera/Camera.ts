@@ -151,15 +151,26 @@ export default class Camera extends EventEmitter {
     }
 
     setZoomLockListeners() {
-        UIEventBus.on('zoomLock', (locked: boolean) => {
-            if (locked) {
+        UIEventBus.on('cameraMode', (mode: string) => {
+            if (mode === 'monitor') {
+                // an even ease reads far smoother than the snappy hover curve
                 this.transition(
                     CameraKey.MONITOR,
-                    2000,
+                    1500,
+                    TWEEN.Easing.Cubic.InOut
+                );
+            } else if (mode === 'desk') {
+                this.transition(
+                    CameraKey.DESK,
+                    1600,
                     BezierEasing(0.13, 0.99, 0, 1)
                 );
-            } else {
-                this.transition(CameraKey.DESK);
+            } else if (mode === 'idle') {
+                this.transition(
+                    CameraKey.IDLE,
+                    1600,
+                    TWEEN.Easing.Cubic.InOut
+                );
             }
         });
     }
