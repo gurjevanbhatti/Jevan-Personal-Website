@@ -45,14 +45,14 @@ export const highlights = [
   { logo: '/inner-os/sf/logo-sfu.png', year: "'26", text: 'BSc Data Science', org: 'Simon Fraser University' },
   { logo: '/inner-os/logos/meta.svg', year: "'25", text: 'Production Engineering Fellow', org: 'Meta × MLH' },
   { logo: '/inner-os/logos/amazon.svg', year: "'24", text: 'Student Software Developer', org: 'Amazon (SFU × AWS)' },
-  { logo: '/inner-os/logos/trophy.svg', year: "'24", text: "2nd Place at cmd-f, Canada's largest women's hackathon" },
+  { logo: '/inner-os/logos/trophy.svg', year: "'24", text: "2nd Place @ cmd-f, Canada's largest women's hackathon" },
 ]
 
 // Shown beside the highlights. shape 'tall' spans two rows, 'wide' spans both columns.
 export const photos = [
   { src: '/inner-os/photos/home-portrait.jpg', alt: 'Jevan Bhatti', shape: 'tall' },
   { src: '/inner-os/photos/home-campus.jpg', alt: 'Ivy-covered university building at sunset', position: '50% 45%' },
-  { src: '/inner-os/photos/home-convocation.jpg', alt: 'Rows of graduates in caps and gowns at SFU convocation' },
+  { src: '/inner-os/photos/home-convocation.jpg', alt: 'Rows of graduates in caps and gowns at SFU convocation', position: '50% 72%' },
   { src: '/inner-os/photos/home-hackathon.jpg', alt: 'Group photo of hackathon participants in a lecture hall', shape: 'wide', position: '50% 62%' },
 ]
 

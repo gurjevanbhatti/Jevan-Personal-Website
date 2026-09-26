@@ -218,7 +218,7 @@
 
 /* ---------- Home ---------- */
 .pf-page-wide {
-  max-width: 900px;
+  max-width: 1000px;
 }
 
 .pf-accent,
@@ -230,9 +230,9 @@
 
 .pf-hero {
   display: grid;
-  grid-template-columns: 1fr 260px;
+  grid-template-columns: 1fr 380px;
   align-items: stretch;
-  gap: 40px;
+  gap: 36px;
 }
 
 /* The photo column stretches to this column's height, so their edges line up. */
@@ -246,18 +246,18 @@
 
 .pf-highlights {
   list-style: none;
-  margin: 22px 0 26px;
+  margin: 16px 0 22px;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 8px;
 }
 
 .pf-highlights li {
   display: flex;
   align-items: center;
-  gap: 16px;
-  font-size: 15px;
+  gap: 12px;
+  font-size: 14.5px;
   line-height: 1.45;
 }
 
@@ -285,6 +285,17 @@
   width: 22px;
   height: 22px;
   object-fit: contain;
+}
+
+.pf-highlights .pf-logo-tile {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.pf-highlights .pf-logo-tile img {
+  width: 19px;
+  height: 19px;
 }
 
 .pf-logo-round {
