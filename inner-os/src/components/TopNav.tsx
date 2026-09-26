@@ -17,7 +17,7 @@ export default function TopNav({ current, onNavigate }: Props) {
   return (
     <nav className="pf-nav">
       <button className="pf-brand" onClick={() => onNavigate('home')}>
-        {profile.name}
+        {profile.name.split(' ')[0]}'s Portfolio
       </button>
       <div className="pf-tabs">
         {TABS.map((t) => (

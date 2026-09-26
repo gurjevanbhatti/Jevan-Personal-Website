@@ -48,12 +48,12 @@ export const highlights = [
   { logo: '/inner-os/logos/trophy.svg', year: "'24", text: "2nd Place at cmd-f, Canada's largest women's hackathon" },
 ]
 
-// Shown beside the highlights. Add more and the panel becomes a grid.
+// Shown beside the highlights. shape 'tall' spans two rows, 'wide' spans both columns.
 export const photos = [
-  { src: '/inner-os/photos/home-portrait.jpg', alt: 'Jevan Bhatti' },
-  { src: '/inner-os/photos/home-coding.jpg', alt: 'Laptop with code and a git push in the terminal' },
-  { src: '/inner-os/photos/home-travel.jpg', alt: 'Jevan on a grand staircase while travelling' },
+  { src: '/inner-os/photos/home-portrait.jpg', alt: 'Jevan Bhatti', shape: 'tall' },
+  { src: '/inner-os/photos/home-campus.jpg', alt: 'Ivy-covered university building at sunset', position: '50% 45%' },
   { src: '/inner-os/photos/home-convocation.jpg', alt: 'Rows of graduates in caps and gowns at SFU convocation' },
+  { src: '/inner-os/photos/home-hackathon.jpg', alt: 'Group photo of hackathon participants in a lecture hall', shape: 'wide', position: '50% 62%' },
 ]
 
 export const education = [

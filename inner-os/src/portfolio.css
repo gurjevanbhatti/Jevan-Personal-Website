@@ -301,8 +301,10 @@
   margin: 0 0 18px;
 }
 
+/* The photos take no height of their own: they fill whatever height the text column sets. */
 .pf-photos {
   min-height: 0;
+  contain: size;
 }
 
 .pf-photos img {
@@ -317,7 +319,7 @@
 .pf-photos.is-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 1fr;
+  grid-auto-rows: minmax(0, 1fr); /* rows share the text column's height instead of growing to fit photos */
   gap: 8px;
 }
 
@@ -325,8 +327,11 @@
   border-radius: 12px;
 }
 
-/* with an odd number of photos, the first one spans the top row */
-.pf-photos.is-grid img:first-child:nth-last-child(odd) {
+.pf-photos.is-grid img.is-tall {
+  grid-row: span 2;
+}
+
+.pf-photos.is-grid img.is-wide {
   grid-column: span 2;
 }
 
@@ -647,7 +652,9 @@
   .pf-tabs { order: 3; width: 100%; margin-left: -10px; overflow-x: auto; }
   .pf-nav .pf-btn-sm { margin-left: auto; }
   .pf-hero { grid-template-columns: 1fr; gap: 20px; }
-  .pf-photos { order: -1; max-width: 220px; }
+  .pf-photos { order: -1; max-width: 260px; contain: none; }
+  .pf-photos.is-grid { grid-auto-rows: 120px; }
+  .pf-photos.is-grid img { aspect-ratio: auto; height: 100%; }
   .pf-photos img { aspect-ratio: 4 / 5; height: auto; }
   .pf-display { font-size: 42px; }
   .pf-grid, .pf-about, .pf-about.is-flipped, .pf-skill-grid { grid-template-columns: 1fr; }

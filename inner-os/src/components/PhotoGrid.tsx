@@ -1,6 +1,8 @@
 interface Photo {
   src: string
   alt: string
+  position?: string
+  shape?: string
 }
 
 /* One photo shows as a tall portrait; two or more become a tidy grid. */
@@ -9,7 +11,13 @@ export default function PhotoGrid({ photos }: { photos: Photo[] }) {
   return (
     <div className={`pf-photos${shown.length > 1 ? ' is-grid' : ''}`}>
       {shown.map((p) => (
-        <img key={p.src} src={p.src} alt={p.alt} />
+        <img
+          key={p.src}
+          src={p.src}
+          alt={p.alt}
+          className={p.shape ? `is-${p.shape}` : undefined}
+          style={p.position ? { objectPosition: p.position } : undefined}
+        />
       ))}
     </div>
   )
