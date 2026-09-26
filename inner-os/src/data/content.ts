@@ -52,7 +52,7 @@ export const highlights = [
 export const photos = [
   { src: '/inner-os/photos/home-portrait.jpg', alt: 'Jevan Bhatti', shape: 'tall' },
   { src: '/inner-os/photos/home-campus.jpg', alt: 'Ivy-covered university building at sunset', position: '50% 45%' },
-  { src: '/inner-os/photos/home-convocation.jpg', alt: 'Rows of graduates in caps and gowns at SFU convocation', position: '50% 72%' },
+  { src: '/inner-os/photos/home-convocation.jpg', alt: 'Rows of graduates in caps and gowns at SFU convocation', position: '50% 52%' },
   { src: '/inner-os/photos/home-hackathon.jpg', alt: 'Group photo of hackathon participants in a lecture hall', shape: 'wide', position: '50% 62%' },
 ]
 
