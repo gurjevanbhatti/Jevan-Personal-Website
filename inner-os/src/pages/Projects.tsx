@@ -16,6 +16,13 @@ function ProjectMedia({ media }: { media: Media }) {
       </div>
     )
   }
+  if (media.kind === 'video') {
+    return (
+      <div className="pf-media pf-video">
+        <video src={media.src} title={media.title} controls preload="metadata" playsInline />
+      </div>
+    )
+  }
   return (
     <figure className="pf-media">
       <img src={media.src} alt={media.alt} />

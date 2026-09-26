@@ -696,7 +696,8 @@
   background: #000;
 }
 
-.pf-video iframe {
+.pf-video iframe,
+.pf-video video {
   display: block;
   width: 100%;
   height: 100%;

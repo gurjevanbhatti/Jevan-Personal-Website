@@ -171,6 +171,16 @@ export const experience = [
 
 export const projects = [
   {
+    name: 'SPEAR',
+    subtitle: 'Seizure Prediction via EEG Analysis and Recognition',
+    date: 'December 2025',
+    tech: ['Python', 'scikit-learn', 'TensorFlow', 'Pandas', 'NumPy', 'Flask'],
+    media: { kind: 'video', src: '/inner-os/videos/spear-demo.mp4', title: 'SPEAR demo video' },
+    bullets: [
+      'Built a machine learning pipeline with a team of five that compared six models on 11,500 EEG recordings to detect epileptic seizures, where our Random Forest reached 97% accuracy (0.997 ROC AUC), served through a Flask web app for live predictions.',
+    ],
+  },
+  {
     name: 'RED SEA',
     subtitle: '2nd place winner, 2024 cmd-f hackathon',
     date: 'April 2024',
