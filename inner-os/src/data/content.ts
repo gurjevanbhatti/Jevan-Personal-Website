@@ -171,6 +171,33 @@ export const experience = [
 
 export const projects = [
   {
+    name: 'Brick Kiln Detection',
+    subtitle: '1st place winner, satellite image classification competition',
+    date: 'November 2025',
+    badge: { src: '/inner-os/badges/first.png', alt: '1st place' },
+    tech: ['Python', 'PyTorch', 'ResNet-50', 'scikit-learn', 'Pandas'],
+    media: {
+      kind: 'image',
+      src: '/inner-os/photos/project-kilns.jpg',
+      alt: 'Two satellite photos side by side: a zigzag brick kiln and a fixed-chimney brick kiln',
+      caption: 'Left: a cleaner zigzag kiln. Right: a polluting fixed-chimney kiln.',
+    },
+    bullets: [
+      'Won 1st place with my team by fine-tuning a ResNet-50 image model on 1,617 satellite photos to tell cleaner zigzag kilns apart from polluting fixed-chimney kilns, a key source of air pollution in Bangladesh, using heavy data augmentation and class weighting to handle an imbalanced dataset.',
+    ],
+  },
+  {
+    name: 'RED SEA',
+    subtitle: '2nd place winner, 2024 cmd-f hackathon',
+    date: 'April 2024',
+    badge: { src: '/inner-os/badges/second.png', alt: '2nd place' },
+    tech: ['Python', 'JavaScript', 'HTML', 'CSS', 'PostgreSQL', 'Node.js', 'Mapbox API'],
+    media: { kind: 'youtube', id: 'LY2TVymYyNM', title: 'RED SEA demo video' },
+    bullets: [
+      "Built an AI-powered web app that finds the safest evacuation routes for refugees fleeing war in Palestine, using 15,000 records of conflict and geospatial data, and took 2nd place out of 300+ participants at Canada's largest women's hackathon.",
+    ],
+  },
+  {
     name: 'SPEAR',
     subtitle: 'Seizure Prediction via EEG Analysis and Recognition',
     date: 'December 2025',
@@ -178,16 +205,6 @@ export const projects = [
     media: { kind: 'video', src: '/inner-os/videos/spear-demo.mp4', title: 'SPEAR demo video' },
     bullets: [
       'Built a machine learning pipeline with a team of five that compared six models on 11,500 EEG recordings to detect epileptic seizures, where our Random Forest reached 97% accuracy (0.997 ROC AUC), served through a Flask web app for live predictions.',
-    ],
-  },
-  {
-    name: 'RED SEA',
-    subtitle: '2nd place winner, 2024 cmd-f hackathon',
-    date: 'April 2024',
-    tech: ['Python', 'JavaScript', 'HTML', 'CSS', 'PostgreSQL', 'Node.js', 'Mapbox API'],
-    media: { kind: 'youtube', id: 'LY2TVymYyNM', title: 'RED SEA demo video' },
-    bullets: [
-      "Built an AI-powered web app that finds the safest evacuation routes for refugees fleeing war in Palestine, using 15,000 records of conflict and geospatial data, and took 2nd place out of 300+ participants at Canada's largest women's hackathon.",
     ],
   },
   {

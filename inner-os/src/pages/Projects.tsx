@@ -39,7 +39,10 @@ export default function Projects() {
         {projects.map((p) => (
           <article className="pf-card" key={p.name}>
             <div className="pf-row-head">
-              <h3 className="pf-h3">{p.name}</h3>
+              <h3 className="pf-h3 pf-project-title">
+                {'badge' in p && p.badge && <img className="pf-badge" src={p.badge.src} alt={p.badge.alt} />}
+                {p.name}
+              </h3>
               <span className="pf-date">{p.date}</span>
             </div>
             <p className="pf-card-sub">{p.subtitle}</p>
