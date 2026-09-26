@@ -175,7 +175,7 @@ export const projects = [
     subtitle: '1st place winner, satellite image classification competition',
     date: 'November 2025',
     badge: { src: '/inner-os/badges/first.png', alt: '1st place' },
-    tech: ['Python', 'PyTorch', 'ResNet-50', 'scikit-learn', 'Pandas'],
+    tech: ['Python', 'PyTorch', 'EfficientNetV2', 'ResNet-50', 'scikit-learn'],
     media: {
       kind: 'image',
       src: '/inner-os/photos/project-kilns.jpg',
@@ -183,7 +183,7 @@ export const projects = [
       caption: 'Left: a cleaner zigzag kiln. Right: a polluting fixed-chimney kiln.',
     },
     bullets: [
-      'Won 1st place with my team by fine-tuning a ResNet-50 image model on 1,617 satellite photos to tell cleaner zigzag kilns apart from polluting fixed-chimney kilns, a key source of air pollution in Bangladesh, using heavy data augmentation and class weighting to handle an imbalanced dataset.',
+      'Won 1st place at 99.95% AUC, classifying polluting vs. cleaner brick kilns across 1,617 Bangladesh satellite images. I led feature engineering (normalization, 384px high-resolution inputs, heavy augmentation, class-balanced sampling) that lifted our score from 56.9% to 97.8% AUC, feeding a 5-fold EfficientNetV2-S ensemble.',
     ],
   },
   {
@@ -204,7 +204,7 @@ export const projects = [
     tech: ['Python', 'scikit-learn', 'TensorFlow', 'Pandas', 'NumPy', 'Flask'],
     media: { kind: 'video', src: '/inner-os/videos/spear-demo.mp4', title: 'SPEAR demo video' },
     bullets: [
-      'Built a machine learning pipeline with a team of five that compared six models on 11,500 EEG recordings to detect epileptic seizures, where our Random Forest reached 97% accuracy (0.997 ROC AUC), served through a Flask web app for live predictions.',
+      'Built a machine learning pipeline that compared six models on 11,500 EEG recordings to detect epileptic seizures, where our Random Forest reached 97% accuracy (0.997 ROC AUC), served through a Flask web app for live predictions.',
     ],
   },
   {
@@ -216,7 +216,7 @@ export const projects = [
       kind: 'image',
       src: '/inner-os/photos/project-ig-features.png',
       alt: 'Bar chart of random forest feature importance: shares per view is highest, then comments, likes and saves per view',
-      caption: 'Shares per view turned out to be the strongest signal of a high-view post.',
+      caption: 'Shares predict views best.',
     },
     bullets: [
       'Analyzed 50M+ views across 1M+ posts with Meta Digital Creators to find what drives high-performing content, building a data system that handles 5K+ daily interactions and cut manual analysis time by 40%.',

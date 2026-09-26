@@ -677,11 +677,20 @@
   gap: 8px;
 }
 
+.pf-project-title {
+  gap: 12px;
+}
+
 .pf-badge {
-  width: 40px;
-  height: 40px;
-  margin: -8px 0 -8px -4px;
+  width: 46px;
+  height: 46px;
+  margin: -4px 0 -4px -4px;
   flex-shrink: 0;
+}
+
+/* give the subtitle breathing room under a badged title */
+.pf-project-title:has(.pf-badge) {
+  margin-bottom: 6px;
 }
 
 .pf-media {
