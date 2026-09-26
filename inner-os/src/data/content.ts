@@ -4,11 +4,8 @@ export const profile = {
   showcaseYear: "Portfolio '26",
   location: 'Vancouver, BC, Canada',
   email: 'gurjevanbhatti@gmail.com',
-  phone: '+1 (778) 929-6638',
   github: 'https://github.com/gurjevanbhatti',
   linkedin: 'https://www.linkedin.com/in/gurjevan-kaur-bhatti-35b42a185',
-  tagline:
-    'Software engineer and data scientist in Vancouver. I build cloud infrastructure and applied ML tools that hold up in production.',
   bio: "I've spent the last couple years bouncing between backend infrastructure, cloud architecture, and applied ML — deploying serverless systems built to handle hundreds of thousands of requests a second, and building AI tools aimed at solving real problems rather than just demoing well. I like projects that force me to learn the boring, load-bearing parts of a system, not just the parts that look good in a demo.",
 }
 
@@ -18,7 +15,6 @@ export const highlights = [
   { logo: '/inner-os/sf/logo-sfu.png', year: "'26", text: 'BSc Data Science', org: 'Simon Fraser University' },
   { logo: '/inner-os/logos/meta.svg', year: "'25", text: 'Production Engineering Fellow', org: 'Meta × MLH' },
   { logo: '/inner-os/logos/amazon.svg', year: "'24", text: 'Student Software Developer', org: 'Amazon (SFU × AWS)' },
-  { logo: '/inner-os/logos/instagram.svg', year: "'24", text: 'Analyzed 50M+ views for the Instagram Creators Platform' },
   { logo: '/inner-os/logos/trophy.svg', year: "'24", text: "2nd Place at cmd-f, Canada's largest women's hackathon" },
 ]
 

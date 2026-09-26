@@ -225,25 +225,34 @@
 
 .pf-hero {
   display: grid;
-  grid-template-columns: 1fr 250px;
-  align-items: start;
-  gap: 44px;
+  grid-template-columns: 1fr 260px;
+  align-items: stretch;
+  gap: 40px;
+}
+
+/* The photo column stretches to this column's height, so their edges line up. */
+.pf-hero-text > :first-child {
+  margin-top: -6px;
+}
+
+.pf-hero-text > :last-child {
+  margin-bottom: 0;
 }
 
 .pf-highlights {
   list-style: none;
-  margin: 24px 0 26px;
+  margin: 22px 0 26px;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .pf-highlights li {
   display: flex;
   align-items: center;
-  gap: 14px;
-  font-size: 14.5px;
+  gap: 16px;
+  font-size: 15px;
   line-height: 1.45;
 }
 
@@ -287,37 +296,32 @@
   margin: 0 0 18px;
 }
 
-.pf-social {
-  display: flex;
-  gap: 18px;
-  font-size: 13.5px;
+.pf-photos {
+  min-height: 0;
 }
 
 .pf-photos img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: center 20%;
   border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(211, 27, 119, 0.1);
 }
 
 .pf-photos.is-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
   gap: 8px;
 }
 
 .pf-photos.is-grid img {
-  aspect-ratio: 1;
   border-radius: 12px;
-  box-shadow: none;
 }
 
 .pf-photos.is-grid img:first-child {
   grid-column: span 2;
-  aspect-ratio: 4 / 3;
 }
 
 /* ---------- Tags ---------- */
@@ -504,7 +508,8 @@
   .pf-tabs { order: 3; width: 100%; margin-left: -10px; overflow-x: auto; }
   .pf-nav .pf-btn-sm { margin-left: auto; }
   .pf-hero { grid-template-columns: 1fr; gap: 20px; }
-  .pf-photos { order: -1; max-width: 200px; }
+  .pf-photos { order: -1; max-width: 220px; }
+  .pf-photos img { aspect-ratio: 4 / 5; height: auto; }
   .pf-display { font-size: 42px; }
   .pf-grid { grid-template-columns: 1fr; }
   .pf-xp-item { column-gap: 14px; }

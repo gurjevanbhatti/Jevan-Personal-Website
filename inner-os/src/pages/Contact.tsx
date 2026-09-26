@@ -3,7 +3,6 @@ import { profile } from '../data/content'
 export default function Contact() {
   const rows = [
     { label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
-    { label: 'Phone', value: profile.phone, href: `tel:${profile.phone.replace(/[^\d+]/g, '')}` },
     { label: 'GitHub', value: profile.github.replace('https://', ''), href: profile.github },
     { label: 'LinkedIn', value: 'linkedin.com/in/jevanbhatti', href: profile.linkedin },
     { label: 'Location', value: profile.location },

@@ -3,7 +3,6 @@ import Emphasize from '../components/Emphasize'
 import ExperienceTimeline from '../components/ExperienceTimeline'
 import PhotoGrid from '../components/PhotoGrid'
 import SkillList from '../components/SkillList'
-import SocialLinks from '../components/SocialLinks'
 
 const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
@@ -11,12 +10,10 @@ export default function Landing() {
   return (
     <div className="pf-page pf-page-wide">
       <section className="pf-hero">
-        <div>
+        <div className="pf-hero-text">
           <h1 className="pf-display">
             Hi, I'm <span className="pf-accent">{profile.name.split(' ')[0]}</span>
           </h1>
-          <p className="pf-lede">{profile.tagline}</p>
-
           <ul className="pf-highlights">
             {highlights.map((h) => (
               <li key={h.text}>
@@ -43,7 +40,6 @@ export default function Landing() {
               See my work
             </button>
           </div>
-          <SocialLinks />
         </div>
         <PhotoGrid photos={photos} />
       </section>
