@@ -3,8 +3,8 @@ import { profile } from '../data/content'
 
 const TABS: { id: PageId; label: string }[] = [
   { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
   { id: 'projects', label: 'Projects' },
-  { id: 'education', label: 'Education' },
   { id: 'contact', label: 'Contact' },
 ]
 

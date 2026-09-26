@@ -5,31 +5,19 @@ type LoadingProps = {};
 
 const LoadingScreen: React.FC<LoadingProps> = () => {
     const [progress, setProgress] = useState(0);
-    const [toLoad, setToLoad] = useState(0);
-    const [loaded, setLoaded] = useState(0);
     const [overlayOpacity, setLoadingOverlayOpacity] = useState(1);
-    const [loadingTextOpacity, setLoadingTextOpacity] = useState(1);
     const [startPopupOpacity, setStartPopupOpacity] = useState(0);
-    const [firefoxPopupOpacity, setFirefoxPopupOpacity] = useState(0);
     const [webGLErrorOpacity, setWebGLErrorOpacity] = useState(0);
-
-    const [showBiosInfo, setShowBiosInfo] = useState(false);
-    const [showLoadingResources, setShowLoadingResources] = useState(false);
-    const [doneLoading, setDoneLoading] = useState(false);
     const [webGLError, setWebGLError] = useState(false);
-    const [counter, setCounter] = useState(0);
-    const [resources] = useState<string[]>([]);
     const [mobileWarning, setMobileWarning] = useState(window.innerWidth < 768);
 
-    const onResize = () => {
-        if (window.innerWidth < 768) {
-            setMobileWarning(true);
-        } else {
-            setMobileWarning(false);
-        }
-    };
+    const doneLoading = progress >= 1;
 
-    window.addEventListener('resize', onResize);
+    useEffect(() => {
+        const onResize = () => setMobileWarning(window.innerWidth < 768);
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+    }, []);
 
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
@@ -38,43 +26,14 @@ const LoadingScreen: React.FC<LoadingProps> = () => {
         } else if (!detectWebGLContext()) {
             setWebGLError(true);
         } else {
-            setShowBiosInfo(true);
+            // show the welcome box straight away; START unlocks once loading finishes
+            setTimeout(() => setStartPopupOpacity(1), 100);
         }
     }, []);
 
     useEffect(() => {
-        eventBus.on('loadedSource', (data) => {
-            setProgress(data.progress);
-            setToLoad(data.toLoad);
-            setLoaded(data.loaded);
-            resources.push(
-                `Loaded ${data.sourceName}${getSpace(
-                    data.sourceName
-                )} ... ${Math.round(data.progress * 100)}%`
-            );
-            if (resources.length > 8) {
-                resources.shift();
-            }
-        });
+        eventBus.on('loadedSource', (data) => setProgress(data.progress));
     }, []);
-
-    useEffect(() => {
-        setShowLoadingResources(true);
-        setCounter(counter + 1);
-    }, [loaded]);
-
-    useEffect(() => {
-        if (progress >= 1 && !webGLError) {
-            setDoneLoading(true);
-
-            setTimeout(() => {
-                setLoadingTextOpacity(0);
-                setTimeout(() => {
-                    setStartPopupOpacity(1);
-                }, 500);
-            }, 1000);
-        }
-    }, [progress]);
 
     useEffect(() => {
         if (webGLError) {
@@ -92,23 +51,6 @@ const LoadingScreen: React.FC<LoadingProps> = () => {
             ui.style.pointerEvents = 'none';
         }
     }, []);
-
-    const getSpace = (sourceName: string) => {
-        let spaces = '';
-        for (let i = 0; i < 24 - sourceName.length; i++) spaces += '\xa0';
-        return spaces;
-    };
-
-    const getCurrentDate = () => {
-        const date = new Date();
-        const month = date.getMonth() + 1;
-        const day = date.getDate();
-        const year = date.getFullYear();
-        // add leading zero
-        const monthFormatted = month < 10 ? `0${month}` : month;
-        const dayFormatted = day < 10 ? `0${day}` : day;
-        return `${monthFormatted}/${dayFormatted}/${year}`;
-    };
 
     const detectWebGLContext = () => {
         var canvas = document.createElement('canvas');
@@ -131,135 +73,58 @@ const LoadingScreen: React.FC<LoadingProps> = () => {
                 transform: `scale(${overlayOpacity === 0 ? 1.1 : 1})`,
             })}
         >
-            {startPopupOpacity === 0 && loadingTextOpacity === 0 && (
-                <div style={styles.blinkingContainer}>
-                    <span className="blinking-cursor" />
-                </div>
-            )}
             {!webGLError && (
                 <div
-                    style={Object.assign({}, styles.overlayText, {
-                        opacity: loadingTextOpacity,
+                    style={Object.assign({}, styles.popupContainer, {
+                        opacity: startPopupOpacity,
                     })}
                 >
-                    <div
-                        style={styles.header}
-                        className="loading-screen-header"
-                    >
-                        <div style={styles.logoContainer}>
-                            <div>
-                                <p style={styles.green}>
-                                    <b>Bhatti,</b>{' '}
-                                </p>
-                                <p style={styles.green}>
-                                    <b>Jevan Inc.</b>
-                                </p>
-                            </div>
-                        </div>
-                        <div style={styles.headerInfo}>
-                            <p>Released: 01/13/2000</p>
-                            <p>JBBIOS (C)2000 Bhatti Jevan Inc.,</p>
-                        </div>
-                    </div>
-                    <div style={styles.body} className="loading-screen-body">
-                        <p>JSP S13 2000-2026 Special UC131S</p>
-                        <div style={styles.spacer} />
-                        {showBiosInfo && (
+                    <div style={styles.startPopup}>
+                        <p>Welcome to Jevan Bhatti's Portfolio Showcase 2026</p>
+                        {mobileWarning && (
                             <>
-                                <p>HSP Showcase(tm) XX 113</p>
-                                <p>Checking RAM : {14000} OK</p>
-                                <div style={styles.spacer} />
-                                <div style={styles.spacer} />
-                                {showLoadingResources ? (
-                                    progress == 1 ? (
-                                        <p>FINISHED LOADING RESOURCES</p>
-                                    ) : (
-                                        <p className="loading">
-                                            LOADING RESOURCES ({loaded}/
-                                            {toLoad === 0 ? '-' : toLoad})
-                                        </p>
-                                    )
-                                ) : (
-                                    <p className="loading">WAIT</p>
-                                )}
+                                <br />
+                                <b>
+                                    <p style={styles.warning}>
+                                        WARNING: This experience is best viewed on
+                                    </p>
+                                    <p style={styles.warning}>
+                                        a desktop or laptop computer.
+                                    </p>
+                                </b>
+                                <br />
                             </>
                         )}
-                        <div style={styles.spacer} />
-                        <div style={styles.resourcesLoadingList}>
-                            {resources.map((sourceName) => (
-                                <p key={sourceName}>{sourceName}</p>
-                            ))}
-                        </div>
-                        <div style={styles.spacer} />
-                        {showLoadingResources && doneLoading && (
+                        <div style={{ display: 'flex', alignItems: 'flex-end' }}>
                             <p>
-                                All Content Loaded, launching{' '}
-                                <b style={styles.green}>
-                                    'Jevan Bhatti Portfolio Showcase'
-                                </b>{' '}
-                                V1.0
+                                {doneLoading
+                                    ? 'Click start to begin'
+                                    : 'Getting everything ready'}
+                                {'\xa0'}
                             </p>
-                        )}
-                        <div style={styles.spacer} />
-                        <span className="blinking-cursor" />
-                    </div>
-                    <div
-                        style={styles.footer}
-                        className="loading-screen-footer"
-                    >
-                        <p>
-                            Press <b>DEL</b> to enter SETUP , <b>ESC</b> to skip
-                            memory test
-                        </p>
-                        <p>{getCurrentDate()}</p>
+                            <span className="blinking-cursor" />
+                        </div>
+                        <div
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                marginTop: '16px',
+                            }}
+                        >
+                            {doneLoading ? (
+                                <div className="bios-start-button" onClick={start}>
+                                    <p>START</p>
+                                </div>
+                            ) : (
+                                <div className="bios-start-button is-loading">
+                                    <p>LOADING {Math.round(progress * 100)}%</p>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
             )}
-            <div
-                style={Object.assign({}, styles.popupContainer, {
-                    opacity: startPopupOpacity,
-                })}
-            >
-                <div style={styles.startPopup}>
-                    {/* <p style={styles.red}>
-                        <b>THIS SITE IS CURRENTLY A W.I.P.</b>
-                    </p>
-                    <p>But do enjoy what I have done so far :)</p>
-                    <div style={styles.spacer} />
-                    <div style={styles.spacer} /> */}
-                    <p>Welcome to Jevan Bhatti's Portfolio Showcase 2026</p>
-                    {mobileWarning && (
-                        <>
-                            <br />
-                            <b>
-                                <p style={styles.warning}>
-                                    WARNING: This experience is best viewed on
-                                </p>
-                                <p style={styles.warning}>
-                                    a desktop or laptop computer.
-                                </p>
-                            </b>
-                            <br />
-                        </>
-                    )}
-                    <div style={{ display: 'flex', alignItems: 'flex-end' }}>
-                        <p>Click start to begin{'\xa0'}</p>
-                        <span className="blinking-cursor" />
-                    </div>
-                    <div
-                        style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            marginTop: '16px',
-                        }}
-                    >
-                        <div className="bios-start-button" onClick={start}>
-                            <p>START</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
             {webGLError && (
                 <div
                     style={Object.assign({}, styles.popupContainer, {
@@ -312,12 +177,6 @@ const styles: StyleSheetCSS = {
     spacer: {
         height: 16,
     },
-    header: {
-        width: '100%',
-        boxSizing: 'border-box',
-        display: 'flex',
-        flexDirection: 'row',
-    },
     popupContainer: {
         position: 'absolute',
         top: 0,
@@ -331,16 +190,6 @@ const styles: StyleSheetCSS = {
     warning: {
         color: 'yellow',
     },
-    blinkingContainer: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        boxSizing: 'border-box',
-        padding: 48,
-    },
     startPopup: {
         backgroundColor: '#000',
         padding: 24,
@@ -350,51 +199,6 @@ const styles: StyleSheetCSS = {
         justifyContent: 'center',
         maxWidth: 500,
         // alignItems: 'center',
-    },
-    headerInfo: {
-        marginLeft: 64,
-    },
-    red: {
-        color: '#00ff00',
-    },
-    link: {
-        // textDecoration: 'none',
-        color: '#4598ff',
-        cursor: 'pointer',
-    },
-    overlayText: {
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-    },
-    body: {
-        flex: 1,
-        display: 'flex',
-        width: '100%',
-        boxSizing: 'border-box',
-        flexDirection: 'column',
-    },
-    logoContainer: {
-        display: 'flex',
-        flexDirection: 'row',
-    },
-    resourcesLoadingList: {
-        display: 'flex',
-        paddingLeft: 32,
-        paddingBottom: 32,
-        flexDirection: 'column',
-    },
-    logoImage: {
-        width: 64,
-        height: 42,
-        imageRendering: 'pixelated',
-        marginRight: 16,
-    },
-    footer: {
-        boxSizing: 'border-box',
-        width: '100%',
     },
 };
 

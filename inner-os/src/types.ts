@@ -1,4 +1,4 @@
-export type PageId = 'home' | 'projects' | 'education' | 'contact'
+export type PageId = 'home' | 'about' | 'projects' | 'contact'
 
 export type AppId = 'showcase' | 'vscode' | 'search' | 'terminal' | 'credits'
 

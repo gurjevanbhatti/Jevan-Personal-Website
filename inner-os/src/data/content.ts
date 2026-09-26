@@ -6,7 +6,20 @@ export const profile = {
   email: 'gurjevanbhatti@gmail.com',
   github: 'https://github.com/gurjevanbhatti',
   linkedin: 'https://www.linkedin.com/in/gurjevan-kaur-bhatti-35b42a185',
-  bio: "I've spent the last couple years bouncing between backend infrastructure, cloud architecture, and applied ML — deploying serverless systems built to handle hundreds of thousands of requests a second, and building AI tools aimed at solving real problems rather than just demoing well. I like projects that force me to learn the boring, load-bearing parts of a system, not just the parts that look good in a demo.",
+}
+
+// The "About me" section on the home page, in Jevan's own words.
+export const about = {
+  paragraphs: [
+    "What I love most about computer science is the freedom. You can wake up with an idea and build it that same day, entirely on your own terms. Not many fields let you do that, and I still think it's remarkable.",
+    "I've always loved math because, at its core, it's patterns. That's also why LeetCode feels more like a puzzle than a chore to me. Data science is where the two meet: find the pattern, then build something with it.",
+    "That same love of freedom shows up everywhere else in my life. I love hackathons, even the ones we lose, because trying something new with friends is the fun part. I create content for about 25K followers because it lets me be creative on my own terms, and when I'm not building or filming, I'm probably planning my next vacation.",
+  ],
+  photo: {
+    src: '/inner-os/about-hackathon.jpg',
+    alt: 'Jevan and three friends at a hackathon',
+    caption: "My friends and me at a hackathon we didn't win. Still one of my favourites.",
+  },
 }
 
 // One-liners for the home page, newest first.
@@ -25,16 +38,22 @@ export const education = [
   {
     school: 'Georgia Institute of Technology',
     location: 'Atlanta, GA',
-    degree: 'Master of Science - Data Science',
-    date: 'January 2027',
+    degree: "Master's Degree, Data Science",
+    date: 'Incoming 2027',
+    link: 'https://www.gatech.edu/',
     logo: '/inner-os/sf/logo-gt.png',
+    awards: [] as string[],
+    activities: [] as string[],
   },
   {
     school: 'Simon Fraser University',
     location: 'Vancouver, BC',
-    degree: 'Bachelor of Science - Data Science',
-    date: 'September 2022 - May 2026',
+    degree: 'Bachelor of Science - BS, Data Science',
+    date: '2022 - 2026',
+    link: 'https://www.sfu.ca/',
     logo: '/inner-os/sf/logo-sfu.png',
+    awards: ['Undergraduate Award for Women in Faculty of Science (2025)'],
+    activities: ['Women in Computer Science (WiCS)', 'Girls Who Code (GWC)'],
   },
 ]
 
@@ -61,6 +80,15 @@ export const skills = {
     'Git',
     'GitHub',
   ],
+}
+
+// Logo for each skill (in public/skills); anything missing shows without one.
+export const skillIcons: Record<string, string> = {
+  Python: 'python', R: 'r', C: 'c', 'C++': 'cplusplus', JavaScript: 'javascript', HTML: 'html5',
+  CSS: 'css3', Java: 'java', TypeScript: 'typescript', 'Spring Boot': 'spring', React: 'react',
+  'Node.js': 'nodejs', Express: 'express', TensorFlow: 'tensorflow', NumPy: 'numpy', Pandas: 'pandas',
+  PyTorch: 'pytorch', AWS: 'amazonwebservices', Azure: 'azure', SQL: 'sql', MongoDB: 'mongodb',
+  Docker: 'docker', Postman: 'postman', 'CI/CD': 'githubactions', Git: 'git', GitHub: 'github',
 }
 
 export const experience = [

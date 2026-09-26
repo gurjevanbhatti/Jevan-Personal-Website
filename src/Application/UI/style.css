@@ -31,29 +31,6 @@ br {
     height: 16px;
 }
 
-.loading::after {
-    display: inline-block;
-    animation: dotty steps(1, end) 1s infinite;
-    content: '';
-}
-
-@keyframes dotty {
-    0% {
-        content: '   ';
-    }
-    25% {
-        content: '. ';
-    }
-    50% {
-        content: '.. ';
-    }
-    75% {
-        content: '...';
-    }
-    100% {
-        content: '   ';
-    }
-}
 .blinking-cursor {
     background-color: #fff;
     width: 0.8em;
@@ -132,18 +109,14 @@ br {
     color: #000;
 }
 
-.loading-screen-header {
-    padding: 48px;
+.bios-start-button.is-loading {
+    opacity: 0.6;
 }
 
-.loading-screen-body {
-    padding-left: 48px;
-    padding-right: 48px;
-}
-
-.loading-screen-footer {
-    padding: 48px;
-    padding-bottom: 64px;
+.bios-start-button.is-loading:hover p {
+    background-color: transparent;
+    cursor: default;
+    color: inherit;
 }
 
 .info-wrapper {
@@ -151,12 +124,7 @@ br {
     left: 64px;
 }
 
-/* if on mobile make all loading screen elements have a padding of 16 */
 @media only screen and (max-width: 768px) {
-    .loading-screen-header {
-        padding: 16px;
-    }
-
     .info-wrapper {
         top: 16px;
         left: 16px;
@@ -171,15 +139,5 @@ br {
         -ms-animation: 0.65s blink step-end infinite;
         -o-animation: 0.65s blink step-end infinite;
         animation: 0.65s blink step-end infinite;
-    }
-    
-    .loading-screen-body {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .loading-screen-footer {
-        padding: 16px;
-        padding-bottom: 32px;
     }
 }
