@@ -1,47 +1,34 @@
 import { profile } from '../data/content'
 
 export default function Contact() {
+  const rows = [
+    { label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
+    { label: 'Phone', value: profile.phone, href: `tel:${profile.phone.replace(/[^\d+]/g, '')}` },
+    { label: 'GitHub', value: profile.github.replace('https://', ''), href: profile.github },
+    { label: 'LinkedIn', value: 'linkedin.com/in/jevanbhatti', href: profile.linkedin },
+    { label: 'Location', value: profile.location },
+  ]
+
   return (
-    <div>
-      <h1 className="page-heading">Get In Touch</h1>
-      <p>
-        If you have any questions or comments I would love to hear them. You can reach me at{' '}
-        <a href={`mailto:${profile.email}`}>{profile.email}</a>.
-      </p>
-      <table className="contact-table">
-        <tbody>
-          <tr>
-            <td>Email</td>
-            <td>
-              <a href={`mailto:${profile.email}`}>{profile.email}</a>
-            </td>
-          </tr>
-          <tr>
-            <td>Phone</td>
-            <td>{profile.phone}</td>
-          </tr>
-          <tr>
-            <td>GitHub</td>
-            <td>
-              <a href={profile.github} target="_blank" rel="noreferrer">
-                {profile.github.replace('https://', '')}
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>LinkedIn</td>
-            <td>
-              <a href={profile.linkedin} target="_blank" rel="noreferrer">
-                linkedin.com/in/jevanbhatti
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>Location</td>
-            <td>{profile.location}</td>
-          </tr>
-        </tbody>
-      </table>
+    <div className="pf-page">
+      <h2 className="pf-h2">Get in touch</h2>
+      <p className="pf-lede">Questions, opportunities, or just want to say hi? Email is the fastest way to reach me.</p>
+      <a className="pf-btn pf-btn-primary" href={`mailto:${profile.email}`}>Email me</a>
+
+      <dl className="pf-contact">
+        {rows.map((r) => (
+          <div className="pf-contact-row" key={r.label}>
+            <dt className="pf-label">{r.label}</dt>
+            <dd>
+              {r.href ? (
+                <a href={r.href} target={r.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer">{r.value}</a>
+              ) : (
+                r.value
+              )}
+            </dd>
+          </div>
+        ))}
+      </dl>
     </div>
   )
 }

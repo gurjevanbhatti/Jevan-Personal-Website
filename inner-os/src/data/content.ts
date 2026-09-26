@@ -7,10 +7,25 @@ export const profile = {
   phone: '+1 (778) 929-6638',
   github: 'https://github.com/gurjevanbhatti',
   linkedin: 'https://www.linkedin.com/in/gurjevan-kaur-bhatti-35b42a185',
+  tagline:
+    'Software engineer and data scientist in Vancouver. I build cloud infrastructure and applied ML tools that hold up in production.',
   intro:
-    "I'm currently pursuing my Master of Science in Data Science at Georgia Tech, after finishing my B.S. in Data Science at Simon Fraser University. Thanks for taking the time to check out my portfolio — I hope you enjoy exploring it as much as I enjoyed building it. If you have any questions or comments, feel free to reach out through the contact page or shoot me an email.",
+    "I'm pursuing a Master of Science in Data Science at Georgia Tech, after completing my B.S. in Data Science at Simon Fraser University.",
   bio: "I've spent the last couple years bouncing between backend infrastructure, cloud architecture, and applied ML — deploying serverless systems built to handle hundreds of thousands of requests a second, and building AI tools aimed at solving real problems rather than just demoing well. I like projects that force me to learn the boring, load-bearing parts of a system, not just the parts that look good in a demo.",
 }
+
+// One-liners for the home page, newest first.
+export const highlights = [
+  { logo: '/inner-os/sf/logo-gt.png', year: "'27", text: 'Incoming MSc Data Science', org: 'Georgia Tech' },
+  { logo: '/inner-os/sf/logo-sfu.png', year: "'26", text: 'BSc Data Science', org: 'Simon Fraser University' },
+  { logo: '/inner-os/logos/meta.svg', year: "'25", text: 'Production Engineering Fellow', org: 'Meta × MLH' },
+  { logo: '/inner-os/logos/amazon.svg', year: "'24", text: 'Student Software Developer', org: 'Amazon (SFU × AWS)' },
+  { logo: '/inner-os/logos/instagram.svg', year: "'24", text: 'Analyzed 50M+ views for the Instagram Creators Platform' },
+  { logo: '/inner-os/logos/trophy.svg', year: "'24", text: "2nd Place at cmd-f, Canada's largest women's hackathon" },
+]
+
+// Shown beside the highlights. Add more and the panel becomes a grid.
+export const photos = [{ src: '/inner-os/me-portrait.jpg', alt: 'Jevan Bhatti' }]
 
 export const education = [
   {
@@ -18,12 +33,14 @@ export const education = [
     location: 'Atlanta, GA',
     degree: 'Master of Science - Data Science',
     date: 'January 2027',
+    logo: '/inner-os/sf/logo-gt.png',
   },
   {
     school: 'Simon Fraser University',
     location: 'Vancouver, BC',
     degree: 'Bachelor of Science - Data Science',
     date: 'September 2022 - May 2026',
+    logo: '/inner-os/sf/logo-sfu.png',
   },
 ]
 
@@ -56,19 +73,21 @@ export const experience = [
   {
     company: 'Meta | Major League Hacking',
     link: 'https://mlh.io/',
+    logo: '/inner-os/logos/meta.svg',
     role: 'Production Engineer',
     date: 'September 2025 - December 2025',
     bullets: [
-      'Engineered a production-ready Flask & MySQL web application template, establishing a reusable, scalable architecture for deploying secure environments.',
-      'Architected the deployment pipeline on a DigitalOcean VPS, securing traffic with SSL/HTTPS, and utilizing Docker for consistent containerized isolation.',
-      'Automated system recovery and deployment workflows using CI/CD pipelines to ensure high availability and reliable delivery of application updates.',
-      'Collaborated with Meta Engineers in an Agile environment to integrate Prometheus and Grafana, establishing real-time system visualization and container monitoring for the deployment environment.',
       'Achieved 90% code coverage across the open-source repository by authoring 20+ unit and integration tests, optimizing database queries to execute in under 2 milliseconds.',
+      'Collaborated with Meta Engineers in an Agile environment to integrate Prometheus and Grafana, establishing real-time system visualization and container monitoring for the deployment environment.',
+      'Architected the deployment pipeline on a DigitalOcean VPS, securing traffic with SSL/HTTPS, and utilizing Docker for consistent containerized isolation.',
+      'Engineered a production-ready Flask & MySQL web application template, establishing a reusable, scalable architecture for deploying secure environments.',
+      'Automated system recovery and deployment workflows using CI/CD pipelines to ensure high availability and reliable delivery of application updates.',
     ],
   },
   {
     company: 'Amazon - SFU x AWS Collaboration',
     link: 'https://www.amazon.com/',
+    logo: '/inner-os/logos/amazon.svg',
     role: 'Student Software Developer',
     date: 'May 2024 - September 2024',
     bullets: [

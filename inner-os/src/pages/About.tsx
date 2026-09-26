@@ -7,51 +7,29 @@ interface Props {
 
 export default function About({ onNavigate }: Props) {
   return (
-    <div>
-      <h1 className="page-heading">Welcome</h1>
-      <h2 className="page-subheading">I'm {profile.name}</h2>
-      <p>{profile.intro}</p>
-
-      <div className="callout">
-        <img src="/inner-os/floppy.svg" alt="" className="callout-icon" />
-        <div>
-          <b>Looking for my resume?</b>
-          <br />
-          <a href="/inner-os/resume.pdf" target="_blank" rel="noreferrer" className="callout-link">
-            Click here to download it!
-          </a>
-        </div>
-      </div>
-
-      <h2 className="page-subheading">About Me</h2>
+    <div className="pf-page">
+      <h2 className="pf-h2">About me</h2>
+      <p className="pf-lede">{profile.intro}</p>
       <p>{profile.bio}</p>
+      <p className="pf-muted">Based in {profile.location}.</p>
 
-      <div className="about-photo-row">
-        <img className="about-photo" src="/inner-os/avatar-placeholder.svg" alt={profile.name} />
-        <span className="figure-caption">Figure 1: Me, 2026</span>
+      <h2 className="pf-h2">Skills</h2>
+      <div className="pf-skills">
+        {Object.entries(skills).map(([category, list]) => (
+          <div className="pf-skill-row" key={category}>
+            <p className="pf-label">{category}</p>
+            <div className="pf-tags">
+              {list.map((s) => (
+                <span className="pf-tag" key={s}>{s}</span>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
 
-      <h2 className="page-subheading">Skills</h2>
-      {Object.entries(skills).map(([category, list]) => (
-        <div key={category} className="skill-group">
-          <p className="skill-category">{category}</p>
-          <div className="tag-row">
-            {list.map((s) => (
-              <span className="tag" key={s}>
-                {s}
-              </span>
-            ))}
-          </div>
-        </div>
-      ))}
-
-      <p>
-        Thanks for reading about me! If you have any questions or comments I'd love to hear them —
-        reach out through the{' '}
-        <a href="#contact" onClick={() => onNavigate('contact')}>
-          contact page
-        </a>
-        .
+      <p className="pf-muted">
+        Questions or ideas? I'd love to hear them —{' '}
+        <button className="pf-link" onClick={() => onNavigate('contact')}>get in touch</button>.
       </p>
     </div>
   )

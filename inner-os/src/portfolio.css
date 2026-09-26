@@ -1,0 +1,532 @@
+/* Portfolio app: a calm, editorial page inside the retro window frame. */
+.pf {
+  --pf-ink: #221c20;
+  --pf-muted: #6e6369;
+  --pf-line: #f1dfe8;
+  --pf-line-strong: #e7c3d6;
+  --pf-accent: #d31b77;
+  --pf-accent-bright: #f0248e;
+  --pf-blush: #fff5fa;
+  --pf-serif: 'Cormorant Garamond', Georgia, serif;
+  --pf-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  container-type: inline-size;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  color: var(--pf-ink);
+  font-family: var(--pf-sans);
+  font-size: 14.5px;
+  line-height: 1.65;
+  user-select: text;
+}
+
+.window-body .pf a {
+  color: var(--pf-accent);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.window-body .pf a:hover {
+  text-decoration: underline;
+}
+
+.pf button {
+  font: inherit;
+}
+
+.pf-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.pf-page {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 36px 44px 56px;
+}
+
+/* ---------- Nav ---------- */
+.pf-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 24px;
+  border-bottom: 1px solid var(--pf-line);
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.pf-brand {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--pf-serif) !important;
+  font-size: 21px !important;
+  font-weight: 600;
+  color: var(--pf-ink);
+  white-space: nowrap;
+}
+
+.pf-tabs {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.pf-tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  font-size: 13.5px !important;
+  font-weight: 500;
+  color: var(--pf-muted);
+  border-bottom: 2px solid transparent;
+}
+
+.pf-tab:hover {
+  color: var(--pf-ink);
+}
+
+.pf-tab.is-active {
+  color: var(--pf-ink);
+  border-bottom-color: var(--pf-accent-bright);
+}
+
+/* ---------- Buttons & links ---------- */
+.pf-btn,
+.window-body .pf a.pf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--pf-line-strong);
+  background: #fff;
+  color: var(--pf-ink);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.pf-btn:hover,
+.window-body .pf a.pf-btn:hover {
+  background: var(--pf-blush);
+  border-color: var(--pf-accent-bright);
+  text-decoration: none;
+}
+
+.pf-btn-primary,
+.window-body .pf a.pf-btn-primary {
+  background: var(--pf-accent);
+  border-color: var(--pf-accent);
+  color: #fff;
+}
+
+.pf-btn-primary:hover,
+.window-body .pf a.pf-btn-primary:hover {
+  background: #b8156a;
+  border-color: #b8156a;
+}
+
+.pf-btn-sm,
+.window-body .pf a.pf-btn-sm {
+  padding: 6px 16px;
+  font-size: 13px;
+}
+
+.pf-link {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--pf-accent);
+  font-weight: 500;
+}
+
+.pf-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Type ---------- */
+.pf-display {
+  margin: 0 0 12px;
+  font-family: var(--pf-serif);
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+.pf-h2 {
+  margin: 36px 0 16px;
+  font-family: var(--pf-serif);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.pf-page > .pf-h2:first-child {
+  margin-top: 0;
+}
+
+.pf-h3 {
+  margin: 0;
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.pf-lede {
+  margin: 0 0 16px;
+  font-size: 16px;
+  color: #3d3439;
+}
+
+.pf-page p {
+  margin: 0 0 14px;
+}
+
+.pf-muted {
+  color: var(--pf-muted);
+}
+
+.pf-label {
+  margin: 0 0 6px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pf-muted);
+}
+
+.pf-date {
+  font-size: 12.5px;
+  color: var(--pf-muted);
+  white-space: nowrap;
+}
+
+.window-body .pf .pf-org,
+.pf-org {
+  display: block;
+  margin: 2px 0 0;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--pf-accent);
+}
+
+.pf-row-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+
+/* ---------- Home ---------- */
+.pf-page-wide {
+  max-width: 900px;
+}
+
+.pf-accent {
+  color: var(--pf-accent);
+}
+
+.pf-hero {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  align-items: start;
+  gap: 44px;
+}
+
+.pf-highlights {
+  list-style: none;
+  margin: 24px 0 26px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pf-highlights li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 14.5px;
+  line-height: 1.45;
+}
+
+.pf-highlights strong {
+  font-weight: 600;
+}
+
+.pf-hl-year {
+  font-variant-numeric: tabular-nums;
+  color: var(--pf-muted);
+}
+
+.pf-logo-tile {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--pf-line);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.pf-logo-tile img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.pf-logo-round {
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  border-color: var(--pf-line-strong);
+}
+
+.pf-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0 0 18px;
+}
+
+.pf-social {
+  display: flex;
+  gap: 18px;
+  font-size: 13.5px;
+}
+
+.pf-photos img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(211, 27, 119, 0.1);
+}
+
+.pf-photos.is-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.pf-photos.is-grid img {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.pf-photos.is-grid img:first-child {
+  grid-column: span 2;
+  aspect-ratio: 4 / 3;
+}
+
+/* ---------- Tags ---------- */
+.pf-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pf-tag {
+  padding: 3px 11px;
+  border-radius: 999px;
+  border: 1px solid #f7d4e6;
+  background: var(--pf-blush);
+  color: var(--pf-accent);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.pf-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+/* ---------- Lists ---------- */
+.pf-bullets {
+  margin: 10px 0 10px;
+  padding-left: 18px;
+}
+
+.pf-bullets li {
+  margin-bottom: 6px;
+}
+
+.pf-bullets li::marker {
+  color: var(--pf-accent-bright);
+}
+
+.pf-bullets strong {
+  font-weight: 600;
+  color: var(--pf-ink);
+}
+
+/* ---------- Experience timeline ---------- */
+.pf-intro {
+  margin-top: -8px !important;
+  margin-bottom: 28px !important;
+}
+
+.pf-xp {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pf-xp-item {
+  display: grid;
+  grid-template-columns: 96px 44px 1fr;
+  column-gap: 20px;
+}
+
+.pf-xp-date {
+  padding-top: 11px;
+  text-align: right;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--pf-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.pf-xp-date-inline {
+  display: none;
+}
+
+.pf-xp-node {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.pf-xp-node::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--pf-line);
+}
+
+.pf-xp-item:first-child .pf-xp-node::before { top: 22px; }
+.pf-xp-item:last-child .pf-xp-node::before { bottom: auto; height: 22px; }
+.pf-xp-item:only-child .pf-xp-node::before { display: none; }
+
+.pf-xp-node .pf-logo-tile {
+  position: relative;
+  box-shadow: 0 0 0 5px #fff;
+}
+
+.pf-xp-body {
+  padding: 4px 0 32px;
+}
+
+/* ---------- Cards ---------- */
+.pf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.pf-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pf-card {
+  padding: 20px 22px;
+  border: 1px solid var(--pf-line);
+  border-radius: 16px;
+  background: #fff;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.pf-card:hover {
+  border-color: var(--pf-line-strong);
+  box-shadow: 0 6px 20px rgba(211, 27, 119, 0.07);
+}
+
+.pf-card-sub {
+  margin: 2px 0 0;
+  font-size: 13.5px;
+  color: var(--pf-accent);
+  font-weight: 500;
+}
+
+.pf-card .pf-tags {
+  margin-top: 12px;
+}
+
+.pf-edu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.pf-edu-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.pf-edu-text {
+  flex: 1;
+}
+
+.pf-edu-text p {
+  margin: 0;
+}
+
+/* ---------- Contact ---------- */
+.pf-contact {
+  margin: 28px 0 0;
+  border-top: 1px solid var(--pf-line);
+}
+
+.pf-contact-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--pf-line);
+}
+
+.pf-contact-row .pf-label {
+  margin: 0;
+}
+
+.pf-contact-row dd {
+  margin: 0;
+}
+
+/* ---------- Narrow windows ---------- */
+@container (max-width: 700px) {
+  .pf-page { padding: 28px 24px 44px; }
+  .pf-nav { flex-wrap: wrap; gap: 8px 16px; padding: 10px 16px; }
+  .pf-tabs { order: 3; width: 100%; margin-left: -10px; overflow-x: auto; }
+  .pf-nav .pf-btn-sm { margin-left: auto; }
+  .pf-hero { grid-template-columns: 1fr; gap: 20px; }
+  .pf-photos { order: -1; max-width: 200px; }
+  .pf-display { font-size: 42px; }
+  .pf-grid { grid-template-columns: 1fr; }
+  .pf-xp-item { grid-template-columns: 44px 1fr; column-gap: 14px; }
+  .pf-xp-date { display: none; }
+  .pf-xp-date-inline { display: block; }
+  .pf-row-head { flex-direction: column; gap: 2px; }
+}
